@@ -8,7 +8,7 @@ class Problem extends React.Component {
         info : []
     }
     getinfo = async () => {
-        const info = await axios.post(/*json*/);
+        const info = await axios.post("https://nature1216.github.io/react/eucalyptus/src/pages/data.json");
         this.setState({info});
     }
     componentDidMount() {
