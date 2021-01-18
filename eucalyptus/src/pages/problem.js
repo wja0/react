@@ -8,8 +8,7 @@ class Problem extends React.Component {
 
     }
     getinfo = async () => {
-        const info = await axios.post("");
-        /* json based on Pnum received from problemset.js */
+        const info = await axios.post(/*json*/);
         this.setState({info});
     }
     componentDidMount() {
@@ -24,6 +23,7 @@ class Problem extends React.Component {
                         key={info.Pnum}
                         Pnum={info.Pnum}
                         Pname={info.Pname}
+                        Solved={info.Solved}
                         Pcond={info.Pcond}
                         Pdetail={info.Pdetail}
                         Pinout={info.Pinout}
