@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function ViewProblem({Pnum, Pname, Pcond, Pdetail, Pinout}) {
+function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
     return (
         <div className="problem__problem">
             <div className="problem__data">
                 <h4 className="problem__Pnum">{Pnum}</h4>
                 <h2 className="problem__Pname">{Pname}</h2>
+                <h4 className="problem__Solved">{Solved}</h4>
             </div>
             <div className="problem__contents">
                 <h4 className="problem__cond">{Pcond}</h4>
