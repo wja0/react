@@ -18,7 +18,7 @@ function Navigation(){
                 <li className="nav_submenu-item"> <Link to =''>이런문제</Link></li>
               </ul> */}
             </li>
-            <li className="nav_menu-item"><Link to =''>ITCPC</Link>
+            <li className="nav_menu-item"><Link to ='/submit'>Submit</Link>
               <ul className="nav_submenu">
               </ul>
             </li>
