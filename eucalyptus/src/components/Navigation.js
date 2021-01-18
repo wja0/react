@@ -13,7 +13,7 @@ function Navigation(){
                 <li className="nav_submenu-item"> <Link to =''>즐겨찾기 목록</Link></li>
               </ul> */}
             </li>
-            <li className="nav_menu-item"><Link to =''>Problems</Link>
+            <li className="nav_menu-item"><Link to ='/status'>채점 현황</Link>
               {/* <ul className="nav_submenu">
                 <li className="nav_submenu-item"> <Link to =''>이런문제</Link></li>
               </ul> */}
