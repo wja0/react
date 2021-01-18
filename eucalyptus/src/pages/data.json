@@ -3,14 +3,32 @@
         {
             "Pnum" : "1001",
             "Pname" : "A+B" ,		
-            "Solved" : "True",		
-            "Submissions" : "False"
+            "Solved" : "T",		
+            "SNum" : "1"
         },
         {
             "Pnum" : "1002",
             "Pname" : "A-B",
-            "Solved" : "False",
-            "Submissions" : "False"
-     }
+            "Solved" : "F",
+            "SNum" : "2"
+        },
+        {
+            "Pnum" : "1001",
+            "Pname" : "A+B" ,		
+            "Solved" : "F",		
+            "SNum" : "3"
+        },
+        {
+            "Pnum" : "1001",
+            "Pname" : "A+B" ,		
+            "Solved" : "T",		
+            "SNum" : "4"
+        },
+        {
+            "Pnum" : "1001",
+            "Pname" : "A+B" ,		
+            "Solved" : "T",		
+            "SNum" : "5"
+        }
     ] 
 }
