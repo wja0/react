@@ -5,7 +5,7 @@ import {Problemset} from "./problemset";
 
 class Problem extends React.Component {
     state = {
-
+        info : []
     }
     getinfo = async () => {
         const info = await axios.post(/*json*/);

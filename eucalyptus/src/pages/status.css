@@ -1,0 +1,22 @@
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.Problems{
+  width: 50%;    
+  line-height: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th {      
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+    background-color: #bbdefb;
+  }
