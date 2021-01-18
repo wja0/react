@@ -1,10 +1,36 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom"
-function problem({ match }){
-    return(
-        <div>
-            {}
-        </div>
-    )
+import axios from "axios";
+import ViewProblem from "../components/ViewProblem";
+import {Problemset} from "./problemset";
+
+class Problem extends React.Component {
+    state = {
+
+    }
+    getinfo = async () => {
+        const info = await axios.post("");
+        /* json based on Pnum received from problemset.js */
+        this.setState({info});
+    }
+    componentDidMount() {
+        this.getinfo();
+    }
+    render() {
+        const {info} = this.state;
+        return (
+            <div className="info">
+                {info.map(info => (
+                    <ViewProblem
+                        key={info.Pnum}
+                        Pnum={info.Pnum}
+                        Pname={info.Pname}
+                        Pcond={info.Pcond}
+                        Pdetail={info.Pdetail}
+                        Pinout={info.Pinout}
+                        />
+                ))}
+            </div>
+        )
+    }
 }
 export default problem;
