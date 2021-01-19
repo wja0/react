@@ -10,7 +10,15 @@ class Problem extends React.Component {
     getinfo = async () => {
         const {
             data:
-                {info}
+            {Pnum},
+            data:
+            {Pname},
+            data:
+            {Solved},
+            data:
+            {Pdetail},
+            data:
+            {Pinout}
         } = await axios.get("https://nature1216.github.io/react/eucalyptus/src/pages/data.json");
         console.log({info});
         this.setState( {info} );

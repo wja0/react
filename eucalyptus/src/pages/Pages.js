@@ -6,7 +6,7 @@ const Pages = () => (
     <Switch>
         <Route exact path="/" component={Home} />
         <Route path='/problemset' component={problemset} />
-        <Route path='/problem/:id' component={problem} />
+        <Route path='/problem/:pnum' component={problem} />
         <Route path='/status' component={status} />
         <Route path='/submit' component={submit} />
         <Route component={NotFound} />
