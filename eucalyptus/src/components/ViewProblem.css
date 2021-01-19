@@ -1,0 +1,30 @@
+.problem__contents>h2, .problem__Example>h2, .problem__detail>h2 {
+    width: 30%;
+    border-bottom: 3px solid black;
+    border-color: #0758c2;
+    padding: 3px;
+}
+p {
+    width: 100%;
+    text-align: left;
+    text-indent: 5px;
+}
+
+.problem__problem {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 40%;
+    background-color: rgb(210, 242, 252);
+}
+.problem__data {
+    width: 20%;
+}
+
+.problem__Solved {
+    width: 30%;
+    padding: 3px;
+    margin-left: 5px;
+    background-color: coral;
+    
+}
