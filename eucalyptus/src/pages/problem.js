@@ -4,23 +4,15 @@ import ViewProblem from "../components/ViewProblem";
 
 class Problem extends React.Component {
     state = {
-        info: []
+        
     };
     
     getinfo = async () => {
         const {
             data:
-            {Pnum},
-            data:
-            {Pname},
-            data:
-            {Solved},
-            data:
-            {Pdetail},
-            data:
-            {Pinout}
+            {info}
         } = await axios.get("https://nature1216.github.io/react/eucalyptus/src/pages/data.json");
-        console.log({info});
+        //console.log({info});
         this.setState( {info} );
     };
     componentDidMount() {
@@ -30,6 +22,7 @@ class Problem extends React.Component {
         const { info } = this.state;
         return (
             <div className="info">
+                
                 {info.map(info => (
                     <ViewProblem
                         key={info.Pnum}
