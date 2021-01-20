@@ -1,0 +1,15 @@
+.problemset
+{
+    width: 100%;
+}
+.container{
+    width: 100%;
+}
+.table-bordered{
+    width: 100%;
+    background-color: whitesmoke;
+}
+.table-bordered>thead
+{
+    background-color: wheat;
+}

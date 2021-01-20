@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {Link } from "react-router-dom";
 import "./ViewProblem.css";
 
 function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
@@ -13,7 +14,8 @@ function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
     return (
         <div className="problem__problem">
             <div className="problem__data">
-                <h2 className="problem__Pnum">{Pnum}번</h2>
+                <span className="problem__Pnum">{Pnum}번</span>
+                <botton className="submit-botton"><Link to= {{pathname: `/submit/${Pnum}`} }>SUBMIT</Link></botton>
                 <h4 className="problem__Solved">{Solved}</h4>
                 <h2 className="problem__Pname">{Pname}</h2>
             </div>
