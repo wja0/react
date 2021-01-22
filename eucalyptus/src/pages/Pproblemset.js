@@ -1,41 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
+//import data from "./data.json";
 import {Link } from "react-router-dom";
-import "./problemget.css"
 
-function problemList({pnum, pname, solved, snum}) {
+
+function pproblemset({pnum, pname, solved, submission}) {
     return(
-        <div className = "problemlist">
         <Link to = {{
             pathname: `/problem/${pnum}`,
             state: {
                 pnum,
                 pname,
                 solved,
-                snum
+                submission
             }
         }}>
 
         <div className = "problemset">
-            <table border = "1">
-                <tr>
-                    <td>{pnum}</td> <td>{pname}</td> <td>{solved}</td> <td>{snum}</td>
-                </tr>
-            </table>
+            <h3 className = "problem__data"> {pnum} {pname} {solved} {submission}</h3>
 
         </div> 
 
         </Link>
-        </div>
     )
 }
 
-problemList.propTypes = {
+problemset.propTypes = {
     //id: PropTypes.number.isRequired,
     pnum: PropTypes.number.isRequired,
     pname: PropTypes.string.isRequired,
     solved: PropTypes.bool.isRequired,
-    snum: PropTypes.number.isRequired
+    submission: PropTypes.bool.isRequired
 };
 
-export default problemList;
+export default Pproblemset;

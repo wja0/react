@@ -26,6 +26,10 @@ class problemset extends Component{
         return (
             <section className = "container">
                 <div className = "pset">
+                    <table border = "2" width = "100">
+                    <tr> 
+                        <td> 번호 </td> <td> 이름 </td> <td> solved </td> <td> snum </td>
+                    
                     {Problems.map((prob,index) => (
                         <ProblemList
                         key={index}
@@ -35,6 +39,8 @@ class problemset extends Component{
                         snum={prob.SNum}
                         />
                     ))}
+                    </tr>
+                    </table>
                 </div>
             </section>
         );
