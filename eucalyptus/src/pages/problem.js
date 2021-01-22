@@ -4,7 +4,7 @@ import ViewProblem from "../components/ViewProblem";
 
 class Problem extends React.Component {
     state = {
-        
+        info: []
     };
     
     getinfo = async () => {
@@ -22,7 +22,6 @@ class Problem extends React.Component {
         const { info } = this.state;
         return (
             <div className="info">
-                
                 {info.map(info => (
                     <ViewProblem
                         key={info.Pnum}
