@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch , Route} from 'react-router-dom';
-import {status, submit ,NotFound, problem ,Home , problemset } from './index';
+import {status, submit ,NotFound, problem ,Home , problemset, Tmp } from './index';
 
 const Pages = () => (
     <Switch>
@@ -10,6 +10,7 @@ const Pages = () => (
         <Route path='/status' component={status} />
         <Route path='/submit/' component={submit} />
         <Route path='/submit/:id' component={submit} />
+        <Route path='/Tmp' component={Tmp} />
         <Route component={NotFound} />
     </Switch>
 );
