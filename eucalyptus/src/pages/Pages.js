@@ -8,7 +8,8 @@ const Pages = () => (
         <Route path='/problemset' component={problemset} />
         <Route path='/problem/:pnum' component={problem} />
         <Route path='/status' component={status} />
-        <Route path='/submit' component={submit} />
+        <Route path='/submit/' component={submit} />
+        <Route path='/submit/:id' component={submit} />
         <Route component={NotFound} />
     </Switch>
 );

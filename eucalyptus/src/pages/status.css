@@ -9,14 +9,15 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-table {
+.table-responsive>table {
     width: 100%;
     border-top: 1px solid #444444;
     border-collapse: collapse;
   }
-  th {      
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-    text-align: center;
-    background-color: #bbdefb;
-  }
+  .status__table>thead {      
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+  text-align: center;
+  background-color: #bbdefb;
+  
+}

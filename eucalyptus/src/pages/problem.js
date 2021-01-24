@@ -2,17 +2,39 @@ import React, { Component } from 'react';
 import axios from "axios";
 import ViewProblem from "../components/ViewProblem";
 
-class Problem extends React.Component {
+class problem extends React.Component {
+  
     state = {
         info: []
     };
+    params  = this.props.match;
     
+    // getinfo = async () => {
+    //     const {
+    //         data:
+    //             {info}
+    //     } = await axios({
+    //         method : 'get',
+    //         url : 'http://211.33.49.253:8080/spring/probleminfo',
+    //         params : {
+    //             'Pnum' : this.params.params.id
+    //         }
+    //     })
+    //     console.log({info});
+    //     this.setState( {info} );
+    // };
     getinfo = async () => {
         const {
             data:
-            {info}
-        } = await axios.get("https://nature1216.github.io/react/eucalyptus/src/pages/data.json");
-        //console.log({info});
+                {info}
+        } = await axios({
+            method : 'post',
+            url : 'http://211.33.49.253:8080/spring/probleminfo',
+            data : {
+                'Pnum' : this.params.params.id
+            }
+        })
+        console.log({info});
         this.setState( {info} );
     };
     componentDidMount() {
@@ -20,6 +42,7 @@ class Problem extends React.Component {
     }
     render() {
         const { info } = this.state;
+        
         return (
             <div className="info">
                 {info.map(info => (
@@ -38,4 +61,4 @@ class Problem extends React.Component {
         )
     }
 }
-export default Problem;
+export default problem;

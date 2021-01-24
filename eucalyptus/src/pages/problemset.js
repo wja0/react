@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import ProblemList from "./Problemget";
-
+import "./problemset.css";
+import Problemget from "./Problemget";
+// const About = ({match})=>{
+//     return(
+//         <div>
+//             {match.params.name}
+//         </div>
+//     )
+// }
 class problemset extends Component{
     state = {
         Problems: []
     };
     
     getList = async () => {
+        
+        // const {
+        //     data:
+        //     { Problems }
+        // } =  await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/problemlist_data.json');
+
         const {
             data:
             { Problems }
-        } =  await axios.get('https://mjkim317.github.io/react/eucalyptus/src/pages/data.json');
+        } =  await axios.get('http://211.33.49.253:8080/spring/problemdata');
+        
 
         console.log(Problems);
         this.setState({ Problems });
@@ -24,19 +38,30 @@ class problemset extends Component{
     render() {
         const { Problems } = this.state;
         return (
-            <section className = "container">
-                <div className = "pset">
-                    {Problems.map((prob,index) => (
-                        <ProblemList
-                        key={index}
+            <div className="problemset">
+                <div className="container">
+                    <table class="table-bordered" id="problem">
+                        <thead>
+                            <tr>
+                                <th style={{width: "15%"}}>문제</th> 
+                                <th style={{width: "50%"}}>문제 제목</th> 
+                                <th style={{width: "15%"}}>정보</th> 
+                                {/* <th style={{width: "15%"}}>제출</th>  */}
+                            </tr>
+                        </thead>
+                        {Problems.map((prob) => (
+                        <Problemget
                         pnum={prob.Pnum}
                         pname={prob.Pname}
                         solved={prob.Solved}
-                        snum={prob.SNum}
                         />
                     ))}
+                    </table>
                 </div>
-            </section>
+        </div>
+           
+                    
+     
         );
     }
 }
