@@ -4,37 +4,16 @@ import "./Textarea.css";
 
 class Textarea extends Component {
   state = {
-<<<<<<< HEAD
     pnum : this.props.match,
     code : "",
     info : ""
-=======
-    code: "",
-    info: "",
->>>>>>> bae929166ee380336a8ce5776258d50c8a8b99e4
+
   };
   params = this.props.match;
   handleChange = (event) => {
     this.setState({ code: event.target.value.substr(0) });
   };
-<<<<<<< HEAD
-  
-  submit= async(e)=> {
-    e.preventDefault() 
-    // console.log(this.props.match)
-    const {data: {info}} = axios({
-      method : 'post',
-      url : 'http://211.33.49.253:8080/spring/submitcode',
-      data : {
-        //'Pnum' : this.params.params.id,
-        'Pnum' : 1002,
-        'code' : this.state.code
-      }
-    })
-    this.setState({value:''})
-    this.getPosts()
-  }
-=======
+
   submit = async (e) => {
     e.preventDefault();
     console.log(this.props.match);
@@ -53,7 +32,6 @@ class Textarea extends Component {
     this.getPosts();
   };
 
->>>>>>> bae929166ee380336a8ce5776258d50c8a8b99e4
   render() {
     //const { info } = this.state;
     console.log(this.state.pnum)
@@ -74,11 +52,9 @@ class Textarea extends Component {
             value={this.state.code}
             onChange={this.handleChange}
           />
-<<<<<<< HEAD
-        {/* <button onClick={this.submit}><Link to ={{pathname: `/submit/${Pnum}`}}>submit</Link></button> */}
+        <button onClick={this.submit}><Link to ={{pathname: `/submit/${Pnum}`}}>submit</Link></button>
 =======
-          <button onClick={this.submit}>submit</button>
->>>>>>> bae929166ee380336a8ce5776258d50c8a8b99e4
+
         </form>
       </div>
     );
