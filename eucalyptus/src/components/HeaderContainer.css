@@ -1,0 +1,16 @@
+.headerButton{
+    float: right;
+    margin-right: 6rem;
+    background-color: rgb(247, 237, 237);
+    user-select: none;
+    outline: 0;
+    border: 0;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.headerButton:active, .headerButton:hover{
+    outline: 1;
+    background-color: #12b886;
+    box-shadow: 0.1px #666;      
+}

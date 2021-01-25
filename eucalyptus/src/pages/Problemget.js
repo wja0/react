@@ -1,41 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link } from "react-router-dom";
-import "./problemget.css"
 
-function problemList({pnum, pname, solved, snum}) {
+function problemget({pnum, pname, solved}) {
     return(
-        <div className = "problemlist">
-        <Link to = {{
-            pathname: `/problem/${pnum}`,
-            state: {
-                pnum,
-                pname,
-                solved,
-                snum
-            }
-        }}>
-
-        <div className = "problemset">
-            <table border = "1">
-                <tr>
-                    <td>{pnum}</td> <td>{pname}</td> <td>{solved}</td> <td>{snum}</td>
-                </tr>
-            </table>
-
-        </div> 
-
-        </Link>
-        </div>
+        <tbody>
+            <tr>
+                <td className="list_problem_id"><Link to= {{pathname: `/problem/${pnum}`} }>{pnum}</Link></td>
+                <td><span>{pname}</span></td>
+                <td><span>{solved}</span></td>
+            </tr>
+        </tbody>
     )
 }
 
-problemList.propTypes = {
-    //id: PropTypes.number.isRequired,
+problemget.propTypes = {
     pnum: PropTypes.number.isRequired,
     pname: PropTypes.string.isRequired,
     solved: PropTypes.bool.isRequired,
-    snum: PropTypes.number.isRequired
 };
 
-export default problemList;
+export default problemget;

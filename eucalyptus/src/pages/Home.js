@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
-    render() {
+const Home = ({ match }) => {
+        
+        const { username } = match.params;
         return (
-            <section className="Home">
-                <div>Home</div>
-            </section>
-        );
-    }
+            <div>
+              <h3>
+                HOME
+              </h3>
+            </div>
+          );
 }
+    
+
 export default Home
