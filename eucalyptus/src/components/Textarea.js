@@ -3,6 +3,7 @@ import axios from "axios";
 
 class Textarea extends Component {
   state = {
+    pnum : this.props.match,
     code : "",
     info : ""
   };
@@ -10,23 +11,25 @@ class Textarea extends Component {
   handleChange = (event) => {
     this.setState({ code: event.target.value.substr(0) });
   };
+  
   submit= async(e)=> {
     e.preventDefault() 
-    console.log(this.props.match)
+    // console.log(this.props.match)
     const {data: {info}} = axios({
       method : 'post',
       url : 'http://211.33.49.253:8080/spring/submitcode',
       data : {
         //'Pnum' : this.params.params.id,
-        'Pnum' : 1001,
-          'code' : this.state.code
+        'Pnum' : 1002,
+        'code' : this.state.code
       }
     })
     this.setState({value:''})
     this.getPosts()
   }
   render() {
-    const { info } = this.state;
+    //const { info } = this.state;
+    console.log(this.state.pnum)
     return (
       <div>
         <form>
@@ -38,7 +41,7 @@ class Textarea extends Component {
             value={this.state.code}
             onChange={this.handleChange}
           />
-        <button onClick={this.submit}>submit</button>
+        {/* <button onClick={this.submit}><Link to ={{pathname: `/submit/${Pnum}`}}>submit</Link></button> */}
         </form>
       </div>
     );
