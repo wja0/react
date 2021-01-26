@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 const Home = ({ match }) => {
         
-        const { username } = match.params;
+        
+        // console.log(this.props.match)
         return (
             <div>
               <h3>

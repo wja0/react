@@ -16,15 +16,15 @@ class problemset extends Component{
     
     getList = async () => {
         
-        // const {
-        //     data:
-        //     { Problems }
-        // } =  await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/problemlist_data.json');
-
         const {
             data:
             { Problems }
-        } =  await axios.get('http://211.33.49.253:8080/spring/problemdata');
+        } =  await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/problemlist_data.json');
+
+        // const {
+        //     data:
+        //     { Problems }
+        // } =  await axios.get('http://211.33.49.253:8080/spring/problemdata');
         
 
         console.log(Problems);
@@ -59,9 +59,6 @@ class problemset extends Component{
                     </table>
                 </div>
         </div>
-           
-                    
-     
         );
     }
 }

@@ -1,0 +1,33 @@
+textarea
+{
+    width: 60%;
+    height: 550px;
+    font-size: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+    placeholder: "Input your code...";
+}
+
+h1
+{
+    color: white;
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+    text-align: center;
+}
+
+button
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+select
+{
+    display: block;
+    margin-left: 20%;
+    margin-bottom: 10px;
+    padding: 5px;
+}

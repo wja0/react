@@ -5,28 +5,16 @@ import "./status_table.css";
 
 function Status({ SubNum, Result }) {
   return (
-    <div className="status">
-      <Link
-        to={{
-          pathname: '/status',
-          state: {
-            SubNum,
-            Result
-          }
-        }}
-      >
-                  <tbody>
-                    <tr id={SubNum}>
-                        <td>
-                            {SubNum}
-                        </td>
-                        <td>
-                            {Result=="T"?"맞았습니다.":"틀렸습니다."}
-                        </td>
-                    </tr>
-                </tbody>
-      </Link>
-    </div>
+    <tbody>
+      <tr className="list_status">
+        <td  style={{ width: "20%" }}>
+          <Link to={{
+            pathname: '/status'
+          }}>{SubNum}</Link></td>
+        <td style={{ width: "80%" }}>
+          {Result === "T" ? "맞았습니다." : "틀렸습니다."}</td>
+      </tr>
+    </tbody>
   );
 }
 
