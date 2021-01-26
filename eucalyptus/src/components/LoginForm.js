@@ -1,10 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-import oc from 'open-color';
-
-const id = styled.input`
-    color: ${oc.gray[8]};
-`;
 
 function LoginForm() {
     return (
