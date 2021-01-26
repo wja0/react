@@ -52,8 +52,9 @@ class Textarea extends Component {
             value={this.state.code}
             onChange={this.handleChange}
           />
-        <button onClick={this.submit}><Link to ={{pathname: `/submit/${Pnum}`}}>submit</Link></button>
-=======
+        {/* <button onClick={this.submit}><Link to ={{pathname: `/submit/${Pnum}`}}>submit</Link></button> */}
+        <button onClick={this.submit}>submit</button>
+
 
         </form>
       </div>
