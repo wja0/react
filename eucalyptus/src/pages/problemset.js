@@ -59,9 +59,6 @@ class problemset extends Component{
                     </table>
                 </div>
         </div>
-           
-                    
-     
         );
     }
 }
