@@ -33,9 +33,9 @@ class status extends Component{
                     </thead>
                     {Problems.map(Problem => (
                       <Status
-                        key={Problem.SNum}
-                        SubNum={Problem.SNum}
-                        Result={Problem.Solved}
+                        key={Problem.SubNum}
+                        SubNum={Problem.SubNum}
+                        Result={Problem.Result}
                       />
                     ))}
                   </table>
