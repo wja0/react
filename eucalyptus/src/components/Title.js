@@ -3,7 +3,7 @@ import "./Title.css"
 
 function Title() {
       return (
-          <h2>Eucalyptus</h2>
+          <h2>Eucalyptus </h2>
 
       );
     }

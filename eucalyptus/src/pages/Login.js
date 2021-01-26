@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import './Login.css';
+import LoginForm from './LoginForm';
+
+
+class login extends Component {
+    handleCreate = (data) => {
+        console.log(data);
+    }
+
+    render() {
+      return (
+        <div>
+            <LoginForm onCreate={this.handleCreate}/>
+        </div>
+      );
+    }
+  }
+
+export default login;
