@@ -1,24 +1,15 @@
-.container {
-    margin-top: 50px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-.Problems{
-  width: 50%;    
-  line-height: 30px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.table-responsive>table {
+.Problems
+{
     width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  .status__table>thead {      
-  border-bottom: 1px solid #444444;
-  padding: 10px;
-  text-align: center;
-  background-color: #bbdefb;
-  
+}
+.container{
+    width: 100%;
+}
+.status__table{
+    width: 100%;
+    background-color: whitesmoke;
+}
+.status__table>thead
+{
+    background-color: wheat;
 }

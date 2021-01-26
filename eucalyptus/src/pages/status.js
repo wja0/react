@@ -21,14 +21,13 @@ class status extends Component{
       render() {
         const { Problems } = this.state;
         return (
-          <section className="container">
               <div className="Problems">
-                <div className="table-responsive">
-                  <table className="status__table">
+                <div className="container">
+                  <table className="status__table" id="problem">
                     <thead>
                       <tr>
-                        <th>제출 번호</th>
-                        <th>체점 결과</th>
+                        <th style={{width: "20%"}}>제출 번호</th>
+                        <th style={{width: "80%"}}>체점 결과</th>
                       </tr>
                     </thead>
                     {Problems.map(Problem => (
@@ -41,7 +40,6 @@ class status extends Component{
                   </table>
                </div>                
               </div>
-          </section>
         );
       }
 }
