@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const Home = ({ match }) => {
         
         
-        // console.log(this.props.match)
+        console.log(this.props.url)
         return (
             <div>
               <h3>

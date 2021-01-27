@@ -4,7 +4,6 @@ import "./Title.css"
 function Title() {
       return (
           <h2>Eucalyptus </h2>
-
       );
     }
 export default Title;
