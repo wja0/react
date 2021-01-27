@@ -11,7 +11,7 @@ class status extends Component{
         const {
           data:
           {Problems}
-        } = await axios.get('https://wja0.github.io/react/eucalyptus/src/pages/data.json');
+        } = await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/채점결과.json');
         console.log(Problems);
         this.setState({ Problems });
       };
@@ -27,7 +27,7 @@ class status extends Component{
                     <thead>
                       <tr>
                         <th style={{width: "20%"}}>제출 번호</th>
-                        <th style={{width: "80%"}}>체점 결과</th>
+                        <th style={{width: "80%"}}>채점 결과</th>
                       </tr>
                     </thead>
                     {Problems.map(Problem => (
