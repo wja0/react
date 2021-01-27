@@ -4,12 +4,12 @@ import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, Auth }
 
 const Pages = () => (
     <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" render={(props) => <Home bh={false}/>} />
         <Route path='/problemset' component={problemset} />
         <Route path='/problem/:pnum' component={problem} />
         <Route path='/status' component={status} />
-        <Route path='/submit/' component={submit} />
         <Route path='/submit/:id' component={submit} />
+        {/* <Route path='/submit/:id' render={(props) => <submit />} /> */}
         <Route path='/Tmp' component={Tmp} />
         <Route path='/auth' component={Auth} />
         <Route path='/Login' component={Login} />

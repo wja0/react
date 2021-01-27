@@ -1,16 +1,15 @@
+import { string } from 'prop-types';
 import React, { Component } from 'react';
 
-const Home = ({ match }) => {
-        
-        
-        // console.log(this.props.match)
-        return (
-            <div>
-              <h3>
-                HOME
-              </h3>
-            </div>
-          );
+class Home extends React.Component{
+  render(){
+    console.log(this.props)
+    return (
+        <div>
+          <h3>Home</h3>
+        </div>
+      );
+  }
 }
     
 

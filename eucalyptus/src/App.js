@@ -5,7 +5,7 @@ import Page from './pages/Pages'
 import Navigation from './components/Navigation'
 import Title from './components/Title'
 import HeaderContainer from './components/HeaderContainer';
-
+import Subnavigation from './components/Subnavigation'
 class App extends Component {
   render(){
     return (

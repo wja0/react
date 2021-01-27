@@ -12,7 +12,7 @@ function Status({ SubNum, Result }) {
             pathname: '/status'
           }}>{SubNum}</Link></td>
         <td style={{ width: "80%" }}>
-          {Result === "T" ? "맞았습니다." : "틀렸습니다."}</td>
+          {Result === "Accept" ? "맞았습니다." : "틀렸습니다."}</td>
       </tr>
     </tbody>
   );
