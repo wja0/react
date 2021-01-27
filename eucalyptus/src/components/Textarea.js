@@ -2,48 +2,56 @@ import React, { Component } from "react";
 import {Link}  from "react-router-dom";
 import axios from "axios";
 import "./Textarea.css";
-import { problem } from "../pages";
+import { problem, submit } from "../pages";
 
 class Textarea extends Component {
-  params = this.props.match;
+  
   state = {
+    Problems : [],
     pnum : this.props.props.match.params.id,
     code : "",
     info : "",
-    result : []
   };
   handleChange = (event) => {
     this.setState({ code: event.target.value.substr(0) });
   };
 
-  submit = async (e) => {
+  Submit = async (e) => {
     e.preventDefault();
     // console.log(this.props);
-    const {
-      data : {Problems}
-    } = axios({
-      method: "post",
-      url: "http://211.33.49.253:8080/spring/submitcode",
-      // url : "https://coala-oj.github.io/react/eucalyptus/src/pages/채점결과.json",
-      data: {
+    // try{
+    // const {problems : []} = axios({
+    //   method: "post",
+    //   url: "http://211.33.49.253:8080/spring/submitcode",
+    //   // url : "https://coala-oj.github.io/react/eucalyptus/src/pages/채점결과.json",
+    //   data: {
+    //     Pnum : this.state.pnum,
+    //     code: this.state.code,
+    //   }
+      axios.post('http://211.33.49.253:8080/spring/submitcode',{
         Pnum : this.state.pnum,
         code: this.state.code,
-      },
-    });
-    console.log(Problems)
-    this.setState({ value: "",  result : Problems });
-    this.getPosts();
-  };
+      }).then(function (response) {
+        // console.log(response.data.Problems)
+        this.setState({ Problems : response.data.Problems });
+        console.log(this.state.Problems)
+      })
+    // }
+    //);
+    // this.setState({ problems });
+    // this.getPosts();
+    // console.log({Problems})
+  // } catch(e){
+  //   console.error(e)
+  }
+  // }
+  
 
   render() {
-    //const { info } = this.state;
-    // console.log(this.props.props.match.params.id)
-    const { pnum } = this.state;
-
+    const { pnum, Problems } = this.state;
     return (
       <div>
         <h1>문제번호 {pnum}</h1>
-        {/* <span>{}</span> */}
         <div className="language-select">
           <select>
             <option value="0">Select Language</option>
@@ -58,10 +66,13 @@ class Textarea extends Component {
             value={this.state.code}
             onChange={this.handleChange}
           />
-        {/* <button onClick={this.submit}><Link to ={{pathname: `/submit/${pnum}`}}>submit</Link></button> */}
-        <button onClick={this.submit}>submit</button>
-
-
+        {/* <button onClick={this.submit}><Link to ={{
+          pathname: `/status/${pnum}`,
+          state : {
+            result : this.state.Problems
+          }
+          }}>submit</Link></button> */}
+        <button onClick={this.Submit}>submit</button>
         </form>
       </div>
     );

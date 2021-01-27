@@ -25,7 +25,6 @@ class problemset extends Component{
             data:
             { Problems }
         } =  await axios.get('http://211.33.49.253:8080/spring/problemdata');
-        
 
         console.log(Problems);
         this.setState({ Problems });

@@ -7,19 +7,23 @@ class status extends Component{
     state = {
         Problems: []
       };
-      getProblems = async () => {
-        const {
-          data:
-          {Problems}
-        } = await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/채점결과.json');
-        console.log(Problems);
-        this.setState({ Problems });
-      };
-      componentDidMount() {
-        this.getProblems();
-      }
+      // getProblems = async () => {
+      //   const {
+      //     data:
+      //     {Problems}
+      //   } = await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/채점결과.json');
+      //   console.log({Problems});
+      //   this.setState({ Problems });
+      // };
+      // componentDidMount() {
+      //   // this.getProblems();
+      //   const {result} = this.props
+
+      // }
+
       render() {
-        const { Problems } = this.state;
+        // console.log(this.props)
+        const { Problems } = this.props;
         return (
               <div className="Problems">
                 <div className="container">

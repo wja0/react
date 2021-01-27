@@ -15,7 +15,7 @@ function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
         <div className="problem__problem">
             <div className="problem__data">
                 <span className="problem__Pnum">{Pnum}번</span>
-                <botton className="submit-botton"><Link to={{pathname: `/submit/${Pnum}`}}>SUBMIT</Link></botton>
+                <button className="submit-button"><Link to={{pathname: `/submit/${Pnum}`}}>SUBMIT</Link></button>
                 <h4 className="problem__Solved">{Solved}</h4>
                 <h2 className="problem__Pname">{Pname}</h2>
             </div>
