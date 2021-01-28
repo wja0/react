@@ -1,6 +1,6 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400');
 
-nav {
+.navigation {
   font-family: 'Roboto', sans-serif;
   width: 80%;
   margin: 30px auto;
@@ -9,14 +9,14 @@ nav {
   box-shadow: 0px 5px 0px #dedede;
 }
 
-nav ul {
+.navigation ul {
   list-style: none;
   text-align: center;
 }
-nav ul li {
+.navigation ul li {
   display: inline-block;
 }
-nav ul li a {
+.navigation ul li a {
   display: block;
   padding: 15px;
   text-decoration: none;
@@ -25,12 +25,12 @@ nav ul li a {
   text-transform: uppercase;
   margin: 0 10px;
 }
-nav ul li a,
-nav ul li a:after,
-nav ul li a:before {
+.navigation ul li a,
+.navigation ul li a:after,
+.navigation ul li a:before {
   transition: all .5s;
 }
-nav ul li a:hover {
+.navigation ul li a:hover {
   color: #555;
 }
 

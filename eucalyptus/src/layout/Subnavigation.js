@@ -3,43 +3,41 @@ import React, { Component } from 'react';
 import {Link } from "react-router-dom";
 import "./Subnavigation.css"
 
-// 코드 더러우니까 놀라지말아주세요... 언젠가 바꿀겁니다..
-
 function Subnavigation() {
     return (
-        <div className="layout">
-          <input name="nav" type="radio" className="nav first" id="first" defaultChecked="checked" />
+        <div className="subnav_structure">
+          <input name="nav" type="radio" className="subnav first" id="first" defaultChecked="checked" />
           <div className="page first">
             <div className="page-contents">
             </div>
           </div>
           {/* htmlFor="first" 을 통해 해당 id jsx코드로 이동 -> 필요한 기능 연결하면 됨 */}
-          <label className="nav" htmlFor="first">
-            <span>
+          <label className="subnav" htmlFor="first">
+            <span className="contents">
               First
             </span>
           </label>
 
-          <input name="nav" type="radio" className="nav second" id="second" />
+          <input name="nav" type="radio" className="subnav second" id="second" />
           <div className="page second">
             <div className="page-contents">
             </div>
           </div>
 
-          <label className="nav" htmlFor="second">
-            <span>
+          <label className="subnav" htmlFor="second">
+            <span className="contents">
               Second
             </span>
           </label>
 
-          <input name="nav" type="radio" className="nav third" id="third" />
+          <input name="nav" type="radio" className="subnav third" id="third" />
           <div className="page third">
             <div className="page-contents">
             </div>
           </div>
 
-          <label className="nav" htmlFor="third">  
-            <span>
+          <label className="subnav" htmlFor="third">  
+            <span className="contents">
               Third
             </span>
           </label>
