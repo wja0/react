@@ -14,5 +14,4 @@ class Tmp extends Component {
     );
   }
 }
-    
 export default Tmp
