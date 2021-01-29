@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Tmp.css"  
-import Subnavigation from '../components/Subnavigation'
+import Subnavigation from '../layout/Subnavigation'
 
 class Tmp extends Component {
   render() {
@@ -14,5 +14,4 @@ class Tmp extends Component {
     );
   }
 }
-    
 export default Tmp
