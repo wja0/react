@@ -14,7 +14,9 @@ function Subnavigation() {
           {/* htmlFor="first" 을 통해 해당 id jsx코드로 이동 -> 필요한 기능 연결하면 됨 */}
           <label className="subnav" htmlFor="first">
             <span className="contents">
-              First
+              {/* <Link to={{pathname: `/submit/${Pnum}`}}> */}
+              Submit
+            {/* </Link> */}
             </span>
           </label>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import ViewProblem from "../components/ViewProblem";
-
+import Subnavigation from '../layout/Subnavigation'
 class problem extends React.Component {
   
     state = {
@@ -29,12 +29,11 @@ class problem extends React.Component {
                 {info}
         } = await axios({
             method : 'post',
-            url : 'http://211.33.49.253:8080/spring/probleminfo',
+            url : 'http://210.117.181.118:4848/spring/probleminfo',
             data : {
                 'Pnum' : this.params.params.id
             }
         })
-        console.log({info});
         this.setState( {info} );
     };
     componentDidMount() {
@@ -42,21 +41,23 @@ class problem extends React.Component {
     }
     render() {
         const { info } = this.state;
+        console.log(info);
         
         return (
-            <div className="info">
-                {info.map(info => (
-                    <ViewProblem
-                        key={info.Pnum}
-                        Pnum={info.Pnum}
-                        Pname={info.Pname}
-                        Solved={info.Solved}
-                        Pcond={info.Pcond}
-                        Pdetail={info.Pdetail}
-                        Pinout={info.Pinout}
-                    />
-                ))}
-                
+            <div>
+                <div className="info">
+                    {info.map(info => (
+                        <ViewProblem
+                            key={info.Pnum}
+                            Pnum={info.Pnum}
+                            Pname={info.Pname}
+                            Solved={info.Solved}
+                            Pcond={info.Pcond}
+                            Pdetail={info.Pdetail}
+                            Pinout={info.Pinout}
+                        />
+                    ))} 
+                </div>
             </div>
         )
     }

@@ -3,24 +3,25 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./status_table.css";
 
-function Status({ SubNum, Result }) {
+function Status_table({ SubNum, Result }) {
+  console.log(1)
   return (
     <tbody>
       <tr className="list_status">
         <td  style={{ width: "20%" }}>
           <Link to={{
-            pathname: '/status'
+            pathname: `/problem`,
           }}>{SubNum}</Link></td>
         <td style={{ width: "80%" }}>
-          {Result === "Accept" ? "맞았습니다." : "틀렸습니다."}</td>
+          {Result}</td>
       </tr>
     </tbody>
   );
 }
 
-Status.propTypes = {
+Status_table.propTypes = {
   SubNum: PropTypes.string.isRequired,
   Result: PropTypes.string.isRequired
 };
 
-export default Status;
+export default Status_table;

@@ -3,7 +3,7 @@ import Textarea from "../components/Textarea";
 
 class Submit extends Component {
   render() {
-    // console.log(this.props)
+    // console.log(this.props.match)
     return (
       <div>
         <Textarea props={this.props}/>
