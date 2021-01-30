@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import { Login } from '.';
+import { Login } from '../pages';
 
 class LoginForm extends Component {
     state = {

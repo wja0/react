@@ -1,6 +1,6 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400');
 
-nav {
+.navigation {
   font-family: 'Roboto', sans-serif;
   width: 80%;
   margin: 30px auto;
@@ -9,14 +9,14 @@ nav {
   box-shadow: 0px 5px 0px #dedede;
 }
 
-nav ul {
+.navigation ul {
   list-style: none;
   text-align: center;
 }
-nav ul li {
+.navigation ul li {
   display: inline-block;
 }
-nav ul li a {
+.navigation ul li a {
   display: block;
   padding: 15px;
   text-decoration: none;
@@ -25,22 +25,22 @@ nav ul li a {
   text-transform: uppercase;
   margin: 0 10px;
 }
-nav ul li a,
-nav ul li a:after,
-nav ul li a:before {
+.navigation ul li a,
+.navigation ul li a:after,
+.navigation ul li a:before {
   transition: all .5s;
 }
-nav ul li a:hover {
+.navigation ul li a:hover {
   color: #555;
 }
 
 
-nav.stroke ul li a,
+.navigation.stroke ul li a,
 nav.fill ul li a {
   position: relative;
 }
-nav.stroke ul li a:after,
-nav.fill ul li a:after {
+.navigation.stroke ul li a:after,
+.navigation.fill ul li a:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -52,25 +52,25 @@ nav.fill ul li a:after {
   background: #333;
   height: 1px;
 }
-nav.stroke ul li a:hover:after {
+.navigation.stroke ul li a:hover:after {
   width: 100%;
 }
 
-nav.fill ul li a {
+.navigation.fill ul li a {
   transition: all 2s;
 }
 
-nav.fill ul li a:after {
+.navigation.fill ul li a:after {
   text-align: left;
   content: '.';
   margin: 0;
   opacity: 0;
 }
-nav.fill ul li a:hover {
+.navigation.fill ul li a:hover {
   color: #023f1c;
   z-index: 1;
 }
-nav.fill ul li a:hover:after {
+.navigation.fill ul li a:hover:after {
   z-index: -10;
   animation: fill 1s forwards;
   -webkit-animation: fill 1s forwards;
@@ -78,17 +78,17 @@ nav.fill ul li a:hover:after {
   opacity: 1;
 }
 
-nav.navigation ul li a {
+.navigation.navigation ul li a {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
   z-index: 1;
 }
-nav.navigation ul li a:hover {
+.navigation.navigation ul li a:hover {
   color: #fff;
 }
-nav.navigation ul li a:before,
-nav.navigation ul li a:after {
+.navigation.navigation ul li a:before,
+.navigation.navigation ul li a:after {
   position: absolute;
   width: 0px;
   height: 100%;
@@ -102,15 +102,15 @@ nav.navigation ul li a:after {
   z-index: -1;
   opacity: 0.75;
 }
-nav.navigation ul li a:before {
+.navigation ul li a:before {
   left: 0;
 }
-nav.navigation ul li a:after {
+.navigation ul li a:after {
   right: 0;
 }
 
-nav.navigation ul li a:hover:after,
-nav.navigation ul li a:hover:before {
+.navigation ul li a:hover:after,
+.navigation ul li a:hover:before {
   width: 100%;
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link } from "react-router-dom";
-
+import "./Problemget.css"
 function problemget({pnum, pname, solved}) {
     return(
         <tbody>
@@ -15,9 +15,9 @@ function problemget({pnum, pname, solved}) {
 }
 
 problemget.propTypes = {
-    pnum: PropTypes.number.isRequired,
+    pnum: PropTypes.string.isRequired,
     pname: PropTypes.string.isRequired,
-    solved: PropTypes.bool.isRequired,
+    solved: PropTypes.string.isRequired,
 };
 
 export default problemget;

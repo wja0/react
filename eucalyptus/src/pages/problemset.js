@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import "./problemset.css";
-import Problemget from "./Problemget";
+import Problemget from "../components/Problemget";
 // const About = ({match})=>{
 //     return(
 //         <div>
@@ -15,16 +15,10 @@ class problemset extends Component{
     };
     
     getList = async () => {
-        
-        // const {
-        //     data:
-        //     { Problems }
-        // } =  await axios.get('https://coala-oj.github.io/react/eucalyptus/src/pages/problemlist_data.json');
-
         const {
             data:
             { Problems }
-        } =  await axios.get('http://211.33.49.253:8080/spring/problemdata');
+        } =  await axios.get('http://210.117.181.118:4848/spring/problemdata');
 
         console.log(Problems);
         this.setState({ Problems });
