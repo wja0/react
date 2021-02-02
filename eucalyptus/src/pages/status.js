@@ -35,7 +35,7 @@ class status extends Component{
         return (
 
           <div className="Problems">
-            <div className="container">
+            <div className="Problems_container">
               <table className="status__table" id="problem">
                 <thead>
                   <tr>
