@@ -1,0 +1,17 @@
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.list_status{
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+/**/
+.list_status>td{
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border: 1px solid #aaa;
+}
