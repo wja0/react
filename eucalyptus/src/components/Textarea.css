@@ -1,4 +1,4 @@
-textarea
+.main-textarea
 {
     width: 60%;
     height: 550px;
@@ -7,27 +7,30 @@ textarea
     margin-left: auto;
     margin-right: auto;
     resize: none;
-    placeholder: "Input your code...";
 }
 
-h1
+.pnum-h1
 {
     color: white;
     text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
     text-align: center;
 }
 
-button
+.submit-button
 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
 }
 
-select
+.language-select
 {
     display: block;
-    margin-left: 20%;
+    margin-left: 19%;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 1%;
 }

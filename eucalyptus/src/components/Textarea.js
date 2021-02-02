@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import {Link, withRouter}  from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import "./Textarea.css";
 import { problem, submit } from "../pages";
 
 class Textarea extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.submit = this.submit.bind(this);
     this.state = {
-      result : [],
-      pnum : props.props.match.params.id,
-      code : "",
-      info : "",
+      result: [],
+      pnum: props.props.match.params.id,
+      code: "",
+      info: "",
     };
   }
   handleChange = (event) => {
@@ -21,35 +21,33 @@ class Textarea extends Component {
 
   submit = async (e) => {
     e.preventDefault();
-    const {data : {Problems}
+    const {
+      data: { Problems },
     } = await axios({
-        method : 'post',
-        url : 'http://210.117.181.118:4848/spring/submitcode',
-        data : {
-          Pnum : this.state.pnum,
-          code: this.state.code,
-        }
+      method: "post",
+      url: "http://210.117.181.118:4848/spring/submitcode",
+      data: {
+        Pnum: this.state.pnum,
+        code: this.state.code,
+      },
     }).then();
-    this.setState({result : Problems}); 
+    this.setState({ result: Problems });
     // console.log(this.state)
     this.props.history.push({
       pathname: `/status/${this.state.pnum}`,
-      state : {
-        result : this.state.result
-      }
-      })
+      state: {
+        result: this.state.result,
+      },
+    });
   };
-  
 
   render() {
     const { pnum } = this.state;
     return (
       <div>
-        <h1>문제번호 {pnum}</h1> 
+        <h1 className="pnum-h1">{pnum}</h1>
         <div>
-          
-             <button onClick={this.submit}>submit</button>
-            
+          <button className = "submit-button"onClick={this.submit}>submit</button>
         </div>
 
         <div className="language-select">
@@ -63,11 +61,12 @@ class Textarea extends Component {
         </div>
         <form>
           <textarea
+            className = "main-textarea"
+            placeholder = "Input your code..."
             value={this.state.code}
-            onChange={this.handleChange}
+            onChange={this.handleChange} 
           />
-        
-        {/* <button onClick={this.submit}>submit</button> */}
+          {/* <button onClick={this.submit}>submit</button> */}
         </form>
       </div>
     );
