@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./status_table.css";
+import "./Status_table.css";
 
 function Status_table({ SubNum, Result }) {
   console.log(1)

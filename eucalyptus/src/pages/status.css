@@ -1,9 +1,20 @@
 .Problems
 {
-    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
-.container{
+.Problems_container{
     width: 100%;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid #aaa;
+}
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 .status__table{
     width: 100%;
@@ -11,5 +22,21 @@
 }
 .status__table>thead
 {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
     background-color: wheat;
+}
+.staus_table>thead>tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.status__table>thead>tr>th
+{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    color: #666666;
+    border: 1px solid #aaa;
 }
