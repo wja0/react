@@ -1,10 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
 
+.subnavigation {
+    margin-left: 0px;
+    margin: auto;
+    margin-top: 150px;
+    width:80%;
+}
+
+.subline{
+  width: 100%;
+  border-bottom:0px; 
+  text-align:left; 
+  margin-left: 0px;
+}
+
+ .subnav {
+  padding:0px 0px ;
+} 
+
+.sublist {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 30px;
+  }
+
+.subbtn {
+    font-size: 14px;
+    position: relative;
+    display: block;
+    /* padding: 4px 0; */
+    font-family: Lato, sans-serif;
+    color: #06344e;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    /* border-bottom:2px solid transparent; */
+  }
+
+.subbtn::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #06344e;
+    transform: scaleX(0);
+    /* transform-origin: right; */
+    /* transition:all ease-in-out .2s; */
+    /* transition: transform 0.5s; */
+}
+
+.subbtn:hover {
+    color: #95a5a6;
+}
+
+.subbtn:hover::after {
+    transform: scaleX(1);
+    /* transform-origin: left; */
+}  
+
+
+
+
+
+
+/* 
 .subnavigation{
   font-family:arial;
   margin: auto;
   margin-top: 150px;
-  margin-bottom: 100px;
   width:80%;
+}
+
+.sub{
+  margin-top: 100px;
 }
 
 .subline{
@@ -38,4 +108,10 @@ button{
 .active{
   border-bottom:2px solid #06344e;
   color:black;
-}
+} */
+
+
+/* .active{
+  border-bottom:2px solid #06344e;
+  color:black;
+} */

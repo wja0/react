@@ -5,7 +5,6 @@ import Page from './pages/Pages'
 import Navigation from './layout/Navigation'
 import Title from './layout/Title'
 import HeaderContainer from './components/HeaderContainer';
-import Subnavigation from './layout/Subnavigation'
 class App extends Component {
   render(){
     return (
@@ -13,7 +12,6 @@ class App extends Component {
           <HeaderContainer/>
           <Title></Title>
           <Navigation />
-          <Subnavigation />
           <Page></Page>
         </div>
         
