@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch , Route} from 'react-router-dom';
-import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, Auth } from './index';
+import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, Auth, User } from './index';
 
 const Pages = () => (
     <Switch>
@@ -13,6 +13,7 @@ const Pages = () => (
         <Route path='/Tmp' component={Tmp} />
         <Route path='/Login' component={Login} />
         <Route component={NotFound} />
+        <Route path="/user" component={User} />
     </Switch>
 );
 
