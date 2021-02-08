@@ -12,7 +12,7 @@ class User extends React.Component {
     getUser = async () => {
         const {
             data:
-                {id , solvedList}
+                {ID , SolvedList}
         } = await axios.get("https://nature1216.github.io/react/eucalyptus/src/pages/data.json");
         // const {
         //     data:
@@ -24,7 +24,9 @@ class User extends React.Component {
         //         'ID': this.params.id
         //     }
         // })
-        this.setState( {id : id , solvedList: solvedList} );
+        this.setState( {
+            solvedList: SolvedList
+        } );
 
     };
     componentDidMount() {
@@ -32,10 +34,9 @@ class User extends React.Component {
     }
 
     render() {
-        const {id} = this.state.id;
-        const {solvedList} = this.state.solvedList;
-        console.log(/*id ,*/ solvedList);
-        console.log("좆같네");
+        const {id} = this.state;
+        const {solvedList} = this.state;
+        console.log(id , solvedList);
 
         return (
             <div>

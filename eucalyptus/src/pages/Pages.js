@@ -12,8 +12,8 @@ const Pages = () => (
         {/* <Route path='/submit/:id' render={(props) => <submit />} /> */}
         <Route path='/Tmp' component={Tmp} />
         <Route path='/Login' component={Login} />
+        <Route path='/user' component={User} />
         <Route component={NotFound} />
-        <Route path="/user" component={User} />
     </Switch>
 );
 
