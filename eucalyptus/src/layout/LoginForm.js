@@ -10,9 +10,9 @@ class LoginForm extends Component {
     }
     handleChange= (e) => {
         this.setState({
-            [e.target.name] : e.target.value,
+            [e.target.name] : e.target.value
             // [e.target.name]: 설정한 태그의 name값을 event 객체를 통해 가져와서 사용함
-          });
+        });
     }
     handleSumit = async (e) => {
         e.preventDefault();                 //페이지 리로딩 방지(상태 잃어버리는 것 방지)        
