@@ -9,6 +9,9 @@ class HeaderContainer extends Component {
                 <Link to ="/Login">
                     <button className="headerButton">Login</button>
                 </Link>
+                <Link to ="/Register">
+                    <button className="headerButton">Register</button>
+                </Link>
             </div>
         );
     }

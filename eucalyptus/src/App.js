@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Page from './pages/Pages'
 import Navigation from './layout/Navigation'
 import Title from './layout/Title'
-import HeaderContainer from './components/HeaderContainer';
+import HeaderContainer from './layout/HeaderContainer';
 class App extends Component {
   render(){
     return (
