@@ -3,10 +3,13 @@ import RegisterForm from './RegisterForm';
 
 
 class Register extends Component {
+    handleCreate = (data) => {
+      console.log(data);
+    }
     render() {
         return (
           <div>
-            <RegisterForm/>
+            <RegisterForm onCreate={this.handleCreate}/>
           </div>
         );
       }

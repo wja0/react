@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch , Route} from 'react-router-dom';
-import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, Auth, User } from './index';
+import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, User } from './index';
 import Register from '../layout/Register';
 
 
