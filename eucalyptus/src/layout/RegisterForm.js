@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import './Register.css';
-
+import { Link, withRouter } from "react-router-dom";
+import sha256 from 'crypto-js/sha256';
+import axios from "axios";
 
 class RegisterForm extends Component{
-    state = {
-        nickname:'',
-        id:'',
-        password: '',
-        check_password: '',
-        correct:''
-    }
+    constructor(props) {
+        super(props);
+        this.handleSumit = this.handleSumit.bind(this);
+        this.state = {
+            name: '',
+            id: '',
+            password: '',
+            check_password: '',
+            correct: '',
+            result : ''
+        };
+      }
     handleChange= (e) => {
         this.setState({
             [e.target.name] : e.target.value
@@ -20,15 +27,33 @@ class RegisterForm extends Component{
         setTimeout(this.handleCheck, 100);       
     }
     handleSumit = (e) => {
-        e.preventDefault();                 //페이지 리로딩 방지(상태 잃어버리는 것 방지)
+        e.preventDefault();
+        var hash = String(sha256(this.state.password)); 
+        this.state.password = hash;     
+        this.state.check_password = hash;    
+        this.setState(this.state);          //상태값 업데이트
         this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
-        this.setState({                     //상태초기화
-            nickname: '',
-            id: '',
-            password: '',
-            check_password: '',
-            correct: ''
-        })
+        const data  =  axios({
+            method: "post",
+            // url: "http://210.117.181.118:4848/spring/",
+            url : "http://39.127.132.78:8080/spring/register",
+            data: {
+                Name : this.state.name,
+                ID : this.state.id,
+                Pwd : this.state.password,
+            },
+            }).then(function (result) {
+                console.log(result.data)
+                // this.state.result = result.data
+            });
+            // console.log(data)
+            this.props.history.push({
+                pathname: `/register/done`,
+                state: {
+                  result: this.result,
+                  id : this.id
+                },
+              });
     }
 
     handleCheck = () => {
@@ -53,14 +78,14 @@ class RegisterForm extends Component{
           
           <div className="nickname">
                 <input placeholder="enter your nickname"
-                       value={this.setState.nickname}
+                       value={this.state.name}
                        onChange={this.handleChange}
-                       name="nickname">
+                       name="name">
                 </input>
           </div>
           <div className="makeID">
                 <input placeholder="enter your ID"
-                       value={this.setState.id}
+                       value={this.state.id}
                        onChange={this.handleChange}
                        name="id">
                 </input>
@@ -90,4 +115,4 @@ class RegisterForm extends Component{
     }
 }
 
-export default RegisterForm;
+export default withRouter(RegisterForm);

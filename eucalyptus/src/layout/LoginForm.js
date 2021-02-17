@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Login } from '../pages';
-import sha256 from 'crypto-js/sha256'; // 해싱 -> npm install crypto-js
+import { Link, withRouter } from "react-router-dom";
+import sha256 from 'crypto-js/sha256';
+import axios from "axios";
 
 class LoginForm extends Component {
-    state = {
+  
+    constructor(props) {
+      super(props);
+      this.handleSumit = this.handleSumit.bind(this);
+      this.state = {
         id:'',
         password: ''
+    }
     }
     handleChange= (e) => {
         this.setState({
@@ -23,22 +30,27 @@ class LoginForm extends Component {
         // console.log로 값 확인
         
         // 서버 전송 코드. 정확하지 않음ㅠ
-        // const {
-        //   data: 
-        //   { id, password },
-        // } = await axios({
-        //   method: "post",
-        //   url: "http://210.117.181.118:4848/spring/",
-        //   data: {
-        //     ID : this.state.id,
-        //     Pwd : this.state.password,
-        //   },
-        // }).then();
+        const data 
+          = await axios({
+          method: "post",
+          url: "http://39.127.132.78:8080/spring/login",
+          data: {
+            ID : this.state.id,
+            Pwd : this.state.password,
+          },
+        }).then(function (result) {
+          console.log(result.data)
+          // this.state.result = result.data
+      });
+      // console.log(data)
+      this.props.history.push({
+          pathname: `/register/done`,
+          // state: {
+          //   result: this.result,
+          //   id : this.id
+          // },
+        });
 
-        this.setState({                     //상태초기화
-            id: '',
-            password: ''
-        })
     }
     render() {
       return (
@@ -67,4 +79,4 @@ class LoginForm extends Component {
     }
   }
 
-export default LoginForm;
+export default withRouter(LoginForm);
