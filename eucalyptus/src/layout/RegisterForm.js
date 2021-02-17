@@ -46,6 +46,7 @@ class RegisterForm extends Component{
 
     render() {
       return (
+
         <form onSubmit={this.handleSumit}>
         <div className="Register">
           <h1>회원가입</h1>
