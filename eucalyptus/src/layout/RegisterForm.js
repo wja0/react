@@ -27,7 +27,7 @@ class RegisterForm extends Component{
             id: '',
             password: '',
             check_password: '',
-            correct: 'false'
+            correct: ''
         })
     }
 
@@ -46,18 +46,25 @@ class RegisterForm extends Component{
 
     render() {
       return (
-        <form  onSubmit={this.handleSumit}> 
+
+        <form onSubmit={this.handleSumit}>
         <div className="Register">
           <h1>회원가입</h1>
           
           <div className="nickname">
-                <input placeholder="enter your nickname">
+                <input placeholder="enter your nickname"
+                       value={this.setState.nickname}
+                       onChange={this.handleChange}
+                       name="nickname">
                 </input>
           </div>
           <div className="makeID">
-                <input placeholder="enter your ID">
+                <input placeholder="enter your ID"
+                       value={this.setState.id}
+                       onChange={this.handleChange}
+                       name="id">
                 </input>
-                <button>아이디 중복 확인</button>
+                <button type="button">아이디 중복 확인</button>
           </div>
 
           <div className="makePassword">
@@ -72,11 +79,11 @@ class RegisterForm extends Component{
                        value={this.state.check_password}
                        onChange={this.handleChange}
                        name="check_password"
-                       checkPW={this.checkPW}>
+                       >
                  </input>
           </div>
           <div className="correct"> {this.state.correct} </div>
-          <button className="join" type="submit">가입하기</button>
+          <button className="join">가입하기</button>
         </div>
         </form>
       );
