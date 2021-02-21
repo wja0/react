@@ -44,11 +44,10 @@ class LoginForm extends Component {
       });
       // console.log(data)
       this.props.history.push({
-          pathname: `/register/done`,
-          // state: {
-          //   result: this.result,
-          //   id : this.id
-          // },
+          pathname: `/`,
+          state: {
+            id : this.id
+          },
         });
 
     }

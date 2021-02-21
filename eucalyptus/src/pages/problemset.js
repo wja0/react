@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import "./problemset.css";
 import Problemget from "../components/Problemget";
-// const About = ({match})=>{
-//     return(
-//         <div>
-//             {match.params.name}
-//         </div>
-//     )
-// }
+
 class problemset extends Component{
     state = {
         Problems: []
@@ -27,7 +21,7 @@ class problemset extends Component{
     componentDidMount() {
         this.getList();
     }
-
+    
     render() {
         const { Problems } = this.state;
         return (

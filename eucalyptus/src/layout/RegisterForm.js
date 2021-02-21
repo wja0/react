@@ -77,13 +77,13 @@ class RegisterForm extends Component{
           <h1>회원가입</h1>
           
           <div className="nickname">
-                <input placeholder="enter your nickname"
+                <input placeholder="enter your name"
                        value={this.state.name}
                        onChange={this.handleChange}
                        name="name">
                 </input>
-          </div>
           <div className="makeID">
+          </div>
                 <input placeholder="enter your ID"
                        value={this.state.id}
                        onChange={this.handleChange}
