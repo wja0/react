@@ -23,7 +23,8 @@ class LoginForm extends Component {
     }
     handleSumit = async (e) => {
         e.preventDefault();                 //페이지 리로딩 방지(상태 잃어버리는 것 방지)        
-        var hash = String(sha256(this.state.password)); // 비밀번호 hash 값으로 인코딩
+        const salt = 'MV2WGYLMPFYHI5LT';    //Base32 Encode로 salt값 생성        
+        var hash = String(sha256(this.state.password + salt)); // 비밀번호 hash 값으로 인코딩
         this.state.password = hash;         // 인코딩 값으로 password 값 업데이트
         this.setState(this.state);          //상태값 업데이트
         this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
