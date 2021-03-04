@@ -34,7 +34,8 @@ class LoginForm extends Component {
         const data 
           = await axios({
           method: "post",
-          url: "http://39.127.132.78:8080/spring/login",
+          // url: "http://39.127.132.78:8080/spring/login",
+          url: "http://210.117.181.118:4848/spring/login",
           data: {
             ID : this.state.id,
             Pwd : this.state.password,
