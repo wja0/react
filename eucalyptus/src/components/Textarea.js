@@ -3,6 +3,10 @@ import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import "./Textarea.css";
 import { problem, submit } from "../pages";
+import CodeMirror from '@uiw/react-codemirror';
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/neo.css';
+import setSize from '@uiw/react-codemirror';
 
 class Textarea extends Component {
   constructor(props) {
@@ -13,11 +17,9 @@ class Textarea extends Component {
       pnum: props.props.match.params.id,
       code: "",
       info: "",
+      lang_value: "c++",
     };
   }
-  handleChange = (event) => {
-    this.setState({ code: event.target.value.substr(0) });
-  };
 
   submit = async (e) => {
     e.preventDefault();
@@ -52,19 +54,24 @@ class Textarea extends Component {
 
         <div className="language-select">
           <select>
-            <option value="0">Select Language</option>
-            <option value="1">C99</option>
-            <option value="2">C++17</option>
-            <option value="3">Python 3</option>
-            <option value="4">Java 11</option>
+            <option lang_value="C++">Select Language</option>
+            <option lang_value="C">C99</option>
+            <option lang_value="C++">C++17</option>
+            <option lang_value="Python">Python 3</option>
+            <option lang_value="Java">Java 11</option>
+            <option lang_value="jsx">JSX</option>
           </select>
         </div>
-        <form>
-          <textarea
-            className = "main-textarea"
-            placeholder = "Input your code..."
+        <form className="codemirror-form">
+          <CodeMirror
             value={this.state.code}
-            onChange={this.handleChange} 
+            onChange={{code : this.state.value}}
+            options={{
+              theme: 'neo',
+              keyMap: 'sublime',
+              mode: 'C++',
+              tabSize: 4,
+            }}
           />
           {/* <button onClick={this.submit}>submit</button> */}
         </form>
