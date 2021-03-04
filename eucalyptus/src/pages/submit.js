@@ -4,10 +4,9 @@ import Subnavigation from "../layout/Subnavigation";
 
 class submit extends Component {
   render() {
-    // console.log(this.props.match)
     return (
       <div>
-        <Subnavigation props={this.props} />
+        <Subnavigation Pnum={this.props.match.params.id} />
         <Textarea props={this.props}/>
       </div>
     );
