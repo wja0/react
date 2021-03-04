@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Status_table from "../components/Status_table";
+import Subnavigation from "../layout/Subnavigation";
 import "./status.css";
 
 class status extends Component{
@@ -35,6 +36,7 @@ class status extends Component{
         return (
 
           <div className="Problems">
+            <Subnavigation props={this.props} />
             <div className="Problems_container">
               <table className="status__table" id="problem">
                 <thead>
