@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Login } from '../pages';
+import { Link, withRouter } from "react-router-dom";
+import sha256 from 'crypto-js/sha256';
+import axios from "axios";
 
 class LoginForm extends Component {
-    state = {
+  
+    constructor(props) {
+      super(props);
+      this.handleSumit = this.handleSumit.bind(this);
+      this.state = {
         id:'',
         password: ''
+    }
     }
     handleChange= (e) => {
         this.setState({
@@ -13,13 +21,37 @@ class LoginForm extends Component {
             // [e.target.name]: 설정한 태그의 name값을 event 객체를 통해 가져와서 사용함
         });
     }
-    handleSumit = (e) => {
-        e.preventDefault();                 //페이지 리로딩 방지(상태 잃어버리는 것 방지)
+    handleSumit = async (e) => {
+        e.preventDefault();                 //페이지 리로딩 방지(상태 잃어버리는 것 방지)        
+        const salt = 'MV2WGYLMPFYHI5LT';    //Base32 Encode로 salt값 생성        
+        var hash = String(sha256(this.state.password + salt)); // 비밀번호 hash 값으로 인코딩
+        this.state.password = hash;         // 인코딩 값으로 password 값 업데이트
+        this.setState(this.state);          //상태값 업데이트
         this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
-        this.setState({                     //상태초기화
-            id: '',
-            password: ''
-        })
+        // console.log로 값 확인
+        
+        // 서버 전송 코드. 정확하지 않음ㅠ
+        const data 
+          = await axios({
+          method: "post",
+          // url: "http://39.127.132.78:8080/spring/login",
+          url: "http://210.117.181.118:4848/spring/login",
+          data: {
+            ID : this.state.id,
+            Pwd : this.state.password,
+          },
+        }).then(function (result) {
+          console.log(result.data)
+          // this.state.result = result.data
+      });
+      // console.log(data)
+      this.props.history.push({
+          pathname: `/`,
+          state: {
+            id : this.id
+          },
+        });
+
     }
     render() {
       return (
@@ -48,4 +80,4 @@ class LoginForm extends Component {
     }
   }
 
-export default LoginForm;
+export default withRouter(LoginForm);

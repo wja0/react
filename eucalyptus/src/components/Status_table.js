@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import "./Status_table.css";
 
 function Status_table({ SubNum, Result }) {
-  console.log(1)
   return (
     <tbody>
       <tr className="list_status">
