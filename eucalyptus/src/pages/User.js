@@ -25,6 +25,7 @@ class User extends React.Component {
         //     }
         // })
         this.setState( {
+            id : ID,
             solvedList: SolvedList
         } );
 
