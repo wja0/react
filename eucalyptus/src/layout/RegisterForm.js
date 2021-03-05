@@ -36,8 +36,7 @@ class RegisterForm extends Component{
         this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
         const data  =  axios({
             method: "post",
-            // url: "http://210.117.181.118:4848/spring/",
-            url : "http://39.127.132.78:8080/spring/register",
+            url: "http://210.117.181.118:4848/spring/register",
             data: {
                 Name : this.state.name,
                 ID : this.state.id,
@@ -93,13 +92,13 @@ class RegisterForm extends Component{
           <h1>회원가입</h1>
           
           <div className="nickname">
-                <input placeholder="enter your nickname"
+                <input placeholder="enter your name"
                        value={this.state.name}
                        onChange={this.handleChange}
                        name="name">
                 </input>
-          </div>
           <div className="makeID">
+          </div>
                 <input placeholder="enter your ID"
                        value={this.state.id}
                        onChange={this.handleChange}
