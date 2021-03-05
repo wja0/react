@@ -72,7 +72,7 @@ class RegisterForm extends Component{
     handleClick = () =>{
         const data = axios({
             method:"post",
-            url:"http://39.127.132.78:8080/spring/isunique",
+            url:"https://luck2901.github.io/react/",
             data:{
                 ID : this.state.id,
             },
