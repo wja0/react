@@ -14,7 +14,8 @@ class RegisterForm extends Component{
             password: '',
             check_password: '',
             correct: '',
-            result : ''
+            result : '',
+            isunique:''
         };
       }
     handleChange= (e) => {
@@ -69,6 +70,21 @@ class RegisterForm extends Component{
         }
     }
 
+    handleClick = () =>{
+        const data = axios({
+            method:"post",
+            url:"http://39.127.132.78:8080/spring/isunique",
+            data:{
+                ID : this.state.id,
+            },
+        }).then(response => response.text())
+        .then(text =>{
+            this.setState({
+                isunique:text,
+            })
+        });
+    }
+
     render() {
       return (
 
@@ -89,7 +105,9 @@ class RegisterForm extends Component{
                        onChange={this.handleChange}
                        name="id">
                 </input>
-                <button type="button">아이디 중복 확인</button>
+                <button type="button"
+                        onClick={this.handleClick}>
+                    아이디 중복 확인</button>
           </div>
 
           <div className="makePassword">
