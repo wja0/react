@@ -72,7 +72,7 @@ class RegisterForm extends Component{
     handleClick = () =>{
         const data = axios({
             method:"post",
-            url:"https://luck2901.github.io/react/",
+            url:"https://luck2901.github.io/react",
             data:{
                 ID : this.state.id,
             },
