@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch , Route} from 'react-router-dom';
-import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, User } from './index';
 import Register from '../layout/Register';
-
+import Done from '../layout/Done'
+import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login } from './index';
 
 const Pages = () => (
     <Switch>
@@ -14,9 +14,8 @@ const Pages = () => (
         {/* <Route path='/submit/:id' render={(props) => <submit />} /> */}
         <Route path='/Tmp' component={Tmp} />
         <Route path='/Login' component={Login} />
-        <Route path='/user/:id' component={User} />
         <Route exact path='/Register' component={Register}/>
-        <Route exact path='/Register/done' component={Home}/>
+        <Route path='/Register/Done' component={Done}/>
         <Route component={NotFound} />
     </Switch>
 );
