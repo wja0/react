@@ -8,22 +8,19 @@ class User extends React.Component {
         id: "",
         solvedList: []
     };
+    params = this.props.match;
 
     getUser = async () => {
         const {
             data:
                 {ID , SolvedList}
-        } = await axios.get("https://nature1216.github.io/react/eucalyptus/src/pages/data.json");
-        // const {
-        //     data:
-        //         {id,solvedList}
-        // } = await axios({
-        //     method : 'post',
-        //     url : '',
-        //     data : {
-        //         'ID': this.params.id
-        //     }
-        // })
+        } = await axios ({
+            method : 'post',
+            url : 'http://210.117.181.118:4848/spring/userinfo',
+            data : {
+                'ID' : this.params.params.id
+            }
+        })
         this.setState( {
             id : ID,
             solvedList: SolvedList
@@ -37,7 +34,8 @@ class User extends React.Component {
     render() {
         const {id} = this.state;
         const {solvedList} = this.state;
-        console.log(id , solvedList);
+        console.log(this.props);
+        
 
         return (
             <div>
