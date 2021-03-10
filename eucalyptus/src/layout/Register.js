@@ -7,15 +7,15 @@ class Register extends Component {
         register_info: []
     }
     handleCreate = (data) => {
-        // console.log(data);
-        const { register_info } = this.state;
+        console.log(data);
+        // const { register_info } = this.state;
 
-        this.setState({
-            name: data.name,
-            id: data.id,
-            password: data.password,
-            check_password: data.check_password,
-        })
+        // this.setState({
+        //     name: data.name,
+        //     id: data.id,
+        //     password: data.password,
+        //     check_password: data.check_password,
+        // })
         // console.log(this.state)
 
     }

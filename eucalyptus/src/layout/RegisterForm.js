@@ -7,7 +7,6 @@ import './Register.css';
 class RegisterForm extends Component{
     constructor(props) {
         super(props);
-        this.handleSumit = this.handleSumit.bind(this);
         this.state = {
             name: '',
             id: '',
@@ -17,6 +16,8 @@ class RegisterForm extends Component{
             idcheck : false,
             result : '',
         };
+        this.handleSumit = this.handleSumit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
       }
     passwordCheck =() =>{
         const {password, check_password} = this.state();
@@ -34,8 +35,11 @@ class RegisterForm extends Component{
         // setTimeout: setState 변경된 값이 handleCheck에서 바로 반영되도록 함
         setTimeout(this.handleCheck, 100);       
     }
-    handleSumit = (e) => {
+    handleSumit = async (e) => {
         e.preventDefault();
+        var hash = String(sha256(this.state.password)); 
+        this.state.password = hash;     
+        this.state.check_password = hash;
             if(this.state.name==0)
             {
                 window.alert('이름을 입력하세요')
@@ -56,36 +60,32 @@ class RegisterForm extends Component{
                 window.alert('아이디 중복 확인 검사필요')
             }
             else {
-                var hash = String(sha256(this.state.password)); 
-                this.state.password = hash;     
-                this.state.check_password = hash;    
-                this.setState(this.state);          //상태값 업데이트
-                this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
-                const data  =  axios({
+                const { data : {Return}, } = await axios ({
                     method: "post",
-                    url: "http://210.117.181.118:4848/spring/register",
+                    // url: "http://210.117.181.118:4848/spring/register",
+                    url: "http://218.151.66.186:8080/spring/register",
                     data: {
                         Name : this.state.name,
                         ID : this.state.id,
                         Pwd : this.state.password,
+                     },
+                })
+
+                window.alert('회원가입 완료!')
+                this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
+                this.setState({result: Return})
+                this.props.history.push({
+                    pathname: `/register/done`,
+                    state: {
+                    result : this.state.result,
+                    id : this.state.id
                     },
-                    }).then(function (result) {
-                        console.log(result.data)
-                        // this.state.result = result.data
-                    });
-                    window.alert('회원가입 완료!')
-                    this.props.history.push({
-                        pathname: `/register/done`,
-                        state: {
-                        result: this.result,
-                        id : this.id
-                        },
-                    });
+                });
                     
             }
         
     }
-    handleCheck = () => {
+    handleCheck = (e) => {
         const{ password, check_password } = this.state;
         if(password.length < 1 || check_password.length < 1){
             this.setState({correct:''});
@@ -97,24 +97,24 @@ class RegisterForm extends Component{
             this.setState({correct:'비밀번호 불일치'});
         }
     }
-    handleClick = () =>{ //아이디 중복확인 이벤트
-        const data = axios({
-            method:"post", //get으로 진행했을 때 isunique:"true" 식으로 반환.
-            url:"http://210.117.181.118:4848/spring/isunique",
+    handleClick = async (e) =>{ //아이디 중복확인 이벤트
+        const {data : {isUnique}, } = await axios({
+            method: "post", //get으로 진행했을 때 isunique:"true" 식으로 반환.
+            // url:"http://210.117.181.118:4848/spring/isunique",
+            url : "http://218.151.66.186:8080/spring/isunique",
             data:{
                 ID : this.state.id,
             },
-        }).then(function(result){
-            console.log(result.data);
-            if(result.data.isUnique == "True"){
-                window.alert('사용가능한 아이디입니다')
-                this.setState({idcheck : true})
-            }
-            else{
-                window.alert('사용할 수 없는 아이디입니다')
-            }    
-        });
-        this.setState({idcheck : true})
+        })
+        
+        this.setState({idcheck: isUnique})
+        if(this.state.idcheck == "True"){
+            window.alert('사용가능한 아이디입니다')
+        }
+        else{
+            window.alert('사용할 수 없는 아이디입니다')
+        } 
+
     }
 
     render() {
