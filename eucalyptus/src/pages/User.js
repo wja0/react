@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import ViewUser from "../components/ViewUser";
 
-
 class User extends React.Component {
     state = {
         id: "",
@@ -16,7 +15,8 @@ class User extends React.Component {
                 {ID , SolvedList}
         } = await axios ({
             method : 'post',
-            url : 'http://210.117.181.118:4848/spring/userinfo',
+            // url : 'http://210.117.181.118:4848/spring/userinfo',
+            url : 'http://218.151.66.186:8080/spring/userinfo',
             data : {
                 'ID' : this.params.params.id
             }
@@ -34,9 +34,7 @@ class User extends React.Component {
     render() {
         const {id} = this.state;
         const {solvedList} = this.state;
-        console.log(this.props);
-        
-
+        // console.log(this.props);
         return (
             <div>
                 <div className="User">
