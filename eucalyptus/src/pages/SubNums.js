@@ -1,36 +1,57 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Codeget from "./Codeget"
-//subnum 전달
+import ViewCode from "../components/ViewCode";
 class SubNums extends React.Component {
   
     state = {
-        subnum:""
+        subnum: "",
+        code: "",
+        pinfo : []
+        
     };
+
+    handleCreate = data =>{
+        const { pinfo } =this.state; 
+
+        this.setState({
+            pinfo: pinfo.concat({
+                pnum: data.pnum,
+                id : data.id,
+                result: data.result,
+                langtype: data.langtype,
+                codesize: data.codesize,
+                permission: data.permission
+            })
+
+        })
+    }
     params  = this.props.match;
-    getsubnum = async () => {
+    getcode = async () => {
         const {
             data:
-                {SubNum}
+                {Code}
         } = await axios({
             method : 'post',
             url : 'http://210.117.181.118:4848/spring/codedetail',
             data : {
-                'SubNum' : this.params.params.subnum 
+                'SubNum' : this.params.params.subnum
             }
-        }).then();
-        this.setState( {subnum : SubNum});
+        })
+        this.setState( {code: Code});
     };
+
     componentDidMount() {
-        this.getsubnum();
+        this.getcode();
     }
     render() {
         const { subnum } = this.state;
-        
+        const { code } = this.state;
         return (
             <div className="subnums">
-                <Codeget
-                   subnum={SubNum}
+                <ViewCode
+                   subnum={subnum}
+                   code = {code}
+                   onCreate={this.handleCreate}
                 />
             </div>
         )
