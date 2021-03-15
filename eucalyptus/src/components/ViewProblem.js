@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link } from "react-router-dom";
 import "./ViewProblem.css";
+import Subnavigation from "../layout/Subnavigation";
 
 function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
     if(Solved === "T") {
@@ -12,10 +13,21 @@ function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
         Solved = "";
     }
     return (
+        <div>
+            <div className="sub_info">
+                <Subnavigation
+                    Pnum={Pnum}
+                    Pname={Pname}
+                    Solved={Solved}
+                    Pcond={Pcond}
+                    Pdetail={Pdetail}
+                    Pinout={Pinout}
+                />
+                </div>
         <div className="problem__problem">
             <div className="problem__data">
                 <span className="problem__Pnum">{Pnum}번</span>
-                <span><button className="submit-button"><Link to={{pathname: `/submit/${Pnum}`}}><h2>SUBMIT</h2></Link></button></span>
+                {/* <span><button className="submit-button"><Link to={{pathname: `/submit/${Pnum}`}}><h2>SUBMIT</h2></Link></button></span> */}
                 <h4 className="problem__Solved">{Solved}</h4>
                 <h2 className="problem__Pname">{Pname}</h2>
             </div>
@@ -49,7 +61,7 @@ function ViewProblem({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
                 <h2 className="outExample">예제 출력</h2>
                 <p className="problem__outExample">{Pinout[1]}</p>
             </div>
-
+            </div>
         </div>
     );
 }

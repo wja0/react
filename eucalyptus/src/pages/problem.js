@@ -27,10 +27,23 @@ class problem extends React.Component {
     }
     render() {
         const { info } = this.state;
-        console.log(info);
+        console.log(this.props);
         
         return (
             <div>
+                {/* <div className="sub_info">
+                    {info.map(info => (
+                        <Subnavigation
+                            key={info.Pnum}
+                            Pnum={info.Pnum}
+                            Pname={info.Pname}
+                            Solved={info.Solved}
+                            Pcond={info.Pcond}
+                            Pdetail={info.Pdetail}
+                            Pinout={info.Pinout}
+                        />
+                    ))} 
+                </div> */}
                 <div className="info">
                     {info.map(info => (
                         <ViewProblem

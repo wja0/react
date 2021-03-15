@@ -1,22 +1,31 @@
-import React, { Component } from 'react';
-import './Register.css';
+import React, { Component, useEffect, useRef } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import sha256 from 'crypto-js/sha256';
 import axios from "axios";
+import './Register.css';
 
 class RegisterForm extends Component{
     constructor(props) {
         super(props);
-        this.handleSumit = this.handleSumit.bind(this);
         this.state = {
             name: '',
             id: '',
             password: '',
             check_password: '',
             correct: '',
-            result : ''
+            idcheck : false,
+            result : '',
         };
+        this.handleSumit = this.handleSumit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
       }
+    passwordCheck =() =>{
+        const {password, check_password} = this.state();
+        if(password.length<1 || check_password<1) return false;
+        else if(password ===check_password) return true;
+        else return false;
+    }
+
     handleChange= (e) => {
         this.setState({
             [e.target.name] : e.target.value
@@ -26,37 +35,57 @@ class RegisterForm extends Component{
         // setTimeout: setState 변경된 값이 handleCheck에서 바로 반영되도록 함
         setTimeout(this.handleCheck, 100);       
     }
-    handleSumit = (e) => {
+    handleSumit = async (e) => {
         e.preventDefault();
         var hash = String(sha256(this.state.password)); 
         this.state.password = hash;     
-        this.state.check_password = hash;    
-        this.setState(this.state);          //상태값 업데이트
-        this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
-        const data  =  axios({
-            method: "post",
-            // url: "http://210.117.181.118:4848/spring/",
-            url : "http://39.127.132.78:8080/spring/register",
-            data: {
-                Name : this.state.name,
-                ID : this.state.id,
-                Pwd : this.state.password,
-            },
-            }).then(function (result) {
-                console.log(result.data)
-                // this.state.result = result.data
-            });
-            // console.log(data)
-            this.props.history.push({
-                pathname: `/register/done`,
-                state: {
-                  result: this.result,
-                  id : this.id
-                },
-              });
-    }
+        this.state.check_password = hash;
+            if(this.state.name==0)
+            {
+                window.alert('이름을 입력하세요')
+            }
+            else if(this.state.id==0)
+            {
+                window.alert('아이디를 입력하세요')
+            }
+            else if(this.state.password>=1&&this.state.check_password>=1&&this.state.password!==this.state.check_password){
+                window.alert("비밀번호를 일치시켜주세요.");
+            }
+            else if(this.state.password==0 || this.state.password==0)
+            {
+                window.alert('비밀번호를 입력하세요')
+            }
+            else if(this.state.idcheck == false)
+            {
+                window.alert('아이디 중복 확인 검사필요')
+            }
+            else {
+                const { data : {Return}, } = await axios ({
+                    method: "post",
+                    // url: "http://210.117.181.118:4848/spring/register",
+                    url: "http://218.151.66.186:8080/spring/register",
+                    data: {
+                        Name : this.state.name,
+                        ID : this.state.id,
+                        Pwd : this.state.password,
+                     },
+                })
 
-    handleCheck = () => {
+                window.alert('회원가입 완료!')
+                this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
+                this.setState({result: Return})
+                this.props.history.push({
+                    pathname: `/register/done`,
+                    state: {
+                    result : this.state.result,
+                    id : this.state.id
+                    },
+                });
+                    
+            }
+        
+    }
+    handleCheck = (e) => {
         const{ password, check_password } = this.state;
         if(password.length < 1 || check_password.length < 1){
             this.setState({correct:''});
@@ -68,10 +97,28 @@ class RegisterForm extends Component{
             this.setState({correct:'비밀번호 불일치'});
         }
     }
+    handleClick = async (e) =>{ //아이디 중복확인 이벤트
+        const {data : {isUnique}, } = await axios({
+            method: "post", //get으로 진행했을 때 isunique:"true" 식으로 반환.
+            // url:"http://210.117.181.118:4848/spring/isunique",
+            url : "http://218.151.66.186:8080/spring/isunique",
+            data:{
+                ID : this.state.id,
+            },
+        })
+        
+        this.setState({idcheck: isUnique})
+        if(this.state.idcheck == "True"){
+            window.alert('사용가능한 아이디입니다')
+        }
+        else{
+            window.alert('사용할 수 없는 아이디입니다')
+        } 
+
+    }
 
     render() {
       return (
-
         <form onSubmit={this.handleSumit}>
         <div className="Register">
           <h1>회원가입</h1>
@@ -82,14 +129,16 @@ class RegisterForm extends Component{
                        onChange={this.handleChange}
                        name="name">
                 </input>
-          <div className="makeID">
           </div>
+          <div className="makeID">
                 <input placeholder="enter your ID"
-                       value={this.state.id}
+                       value={this.setState.id}
                        onChange={this.handleChange}
                        name="id">
                 </input>
-                <button type="button">아이디 중복 확인</button>
+                <button type="button"
+                        onClick={this.handleClick}>
+                    아이디 중복 확인</button>
           </div>
 
           <div className="makePassword">
@@ -108,11 +157,14 @@ class RegisterForm extends Component{
                  </input>
           </div>
           <div className="correct"> {this.state.correct} </div>
-          <button className="join">가입하기</button>
+
+          <div className = 'reg'>
+              <button className="join" >가입하기</button>
+            </div>
         </div>
         </form>
       );
     }
 }
 
-export default withRouter(RegisterForm);
+export default withRouter(RegisterForm); 

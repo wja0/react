@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Status_table from "../components/Status_table";
+import Subnavigation from "../layout/Subnavigation";
 import "./status.css";
 
 class status extends Component{
@@ -8,7 +9,8 @@ class status extends Component{
     constructor(props){
       super(props)
       this.state = {
-        result : props.location.state.result
+        result : props.location.state.result,
+        Pnum : props.match.params.id
       };
     }
 
@@ -28,13 +30,11 @@ class status extends Component{
       // }
 
       render() {
-        // console.log(this.props.location)
-        // console.log(this.state.result)
-        const { result } = this.state;
-        // console.log(result)
+        const { result, Pnum } = this.state;
         return (
 
           <div className="Problems">
+            <Subnavigation Pnum={Pnum} />
             <div className="Problems_container">
               <table className="status__table" id="problem">
                 <thead>
@@ -45,7 +45,6 @@ class status extends Component{
                 </thead>
                 
                 {result.map(result => (
-                  console.log(result),
                   <Status_table
                     key={result.SubNum}
                     SubNum={result.SubNum}

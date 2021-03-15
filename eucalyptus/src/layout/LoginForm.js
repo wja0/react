@@ -34,22 +34,32 @@ class LoginForm extends Component {
         const data 
           = await axios({
           method: "post",
-          url: "http://39.127.132.78:8080/spring/login",
+          //url: "https://whddnjs5167.github.io/react/eucalyptus/src/pages/data.json",
+          url: "http://210.117.181.118:4848/spring/login",
           data: {
             ID : this.state.id,
             Pwd : this.state.password,
           },
-        }).then(function (result) {
-          console.log(result.data)
-          // this.state.result = result.data
-      });
-      // console.log(data)
-      this.props.history.push({
-          pathname: `/`,
-          state: {
-            id : this.id
-          },
+        }).then(function(result) {
+          console.log("result:" + result)
+          if(result.data) {
+            this.props.history.push({
+              pathname: `/`,
+              state: {
+                id : this.id
+              },
+            })
+          }
+          else {
+            alert('아이디 또는 패스워드가 일치하지 않습니다.')
+          }
         });
+        /*{
+          //console.log(result.data)
+          // this.state.result = result.data
+          
+        });*/
+        // console.log(data)
 
     }
     render() {
