@@ -6,7 +6,8 @@ import { problem, submit } from "../pages";
 import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/neo.css';
-import setSize from '@uiw/react-codemirror';
+import 'codemirror/addon/edit/closebrackets';
+import 'codemirror/addon/edit/matchbrackets';
 
 class Textarea extends Component {
   constructor(props) {
@@ -65,12 +66,12 @@ class Textarea extends Component {
         <form className="codemirror-form">
           <CodeMirror
             value={this.state.code}
-            onChange={{code : this.state.value}}
+            onChange={{}}
             options={{
               theme: 'neo',
               keyMap: 'sublime',
               mode: 'C++',
-              tabSize: 4,
+              tabSize: 8,
             }}
           />
           {/* <button onClick={this.submit}>submit</button> */}
