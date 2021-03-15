@@ -20,7 +20,7 @@ function Status_table({ statusList }) {
         <td style={{ width: "40%" }} className="결과">
           {statusList.Permission?
             <Link to={{pathname: `/source/${statusList.subNum}`,}}>{statusList.Result}</Link> 
-            : alert('권한 없음')}   
+            : statusList.Result}   
         </td>
         <td style={{ width: "10%" }} className="언어">
           {statusList.LangType}</td>
@@ -29,11 +29,11 @@ function Status_table({ statusList }) {
       </tr>
     </tbody>
   );
-}//Permission true일때만 결과 출력. false이면 '권한 없음' 경고창 
+}//Permission true일때만 코드 확인 가능.
 //(데이터가 없어서 false일 때는 확인 못해봄)
 
 Status_table.propTypes = {
-  
+  statusList: PropTypes.string.isRequired
 };
 
 export default Status_table;
