@@ -1,0 +1,33 @@
+{
+    "Status" : [
+    {
+    "SubNum" : "1",
+    "Pnum" : "1001", //문제 번호
+    "ID" : "asdf1234", //ID
+    "Result" : "TIME_LIMIT_EXCEED", //채점 결과
+    "LangType" : "C++",
+    "CodeSize" : "132byte",
+    "Permission" : "True" //True일때 코드 열람 권한 존재
+    },
+    {
+    "SubNum" : "2",
+    "Pnum" : "1001", //문제 번호
+    "ID" : "asdf1234", //ID
+    "Result" : "TIME_LIMIT_EXCEED", //채점 결과
+    "LangType" : "C++",
+    "CodeSize" : "132byte",
+    "Permission" : "False", //True일때 코드 열람 권한 존재
+    },
+    {
+    "SubNum" : "3",
+    "Pnum" : "1001", //문제 번호
+    "ID" : "asdf1234", //ID
+    "Result" : "TIME_LIMIT_EXCEED", //채점 결과
+    "LangType" : "C++",
+    "CodeSize" : "132byte",
+    "Permission" : "True" //True일때 코드 열람 권한 존재        
+    }
+    ]
+}
+    
+    
