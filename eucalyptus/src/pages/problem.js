@@ -9,20 +9,6 @@ class problem extends React.Component {
     };
     params  = this.props.match;
     
-    // getinfo = async () => {
-    //     const {
-    //         data:
-    //             {info}
-    //     } = await axios({
-    //         method : 'get',
-    //         url : 'http://211.33.49.253:8080/spring/probleminfo',
-    //         params : {
-    //             'Pnum' : this.params.params.id
-    //         }
-    //     })
-    //     console.log({info});
-    //     this.setState( {info} );
-    // };
     getinfo = async () => {
         const {
             data:
@@ -41,7 +27,7 @@ class problem extends React.Component {
     }
     render() {
         const { info } = this.state;
-        console.log(info);
+        console.log(this.props);
         
         return (
             <div>

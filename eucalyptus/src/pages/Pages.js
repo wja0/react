@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch , Route} from 'react-router-dom';
 import Register from '../layout/Register';
 import Done from '../layout/Done'
+
 import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, User, source } from './index';
 
 const Pages = () => (
