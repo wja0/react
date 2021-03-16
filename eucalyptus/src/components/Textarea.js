@@ -6,7 +6,6 @@ import { problem, submit } from "../pages";
 import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/neo.css';
-import 'codemirror/theme/nord.css';
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/edit/matchbrackets';
 
