@@ -11,7 +11,7 @@ const Pages = () => (
         <Route exact path="/" component={Home}/>
         <Route path='/problemset' component={problemset} />
         <Route path='/problem/:id' component={problem} />
-        <Route path='/status/:id' component={status} />
+        <Route path='/status' component={status} />
         <Route path='/submit/:id' component={submit} />
         {/* <Route path='/submit/:id' render={(props) => <submit />} /> */}  
         <Route path='/user/:id' component={User} />
