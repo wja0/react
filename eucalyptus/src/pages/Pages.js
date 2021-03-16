@@ -3,7 +3,7 @@ import {Switch , Route} from 'react-router-dom';
 import Register from '../layout/Register';
 import Done from '../layout/Done'
 
-import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, User, source } from './index';
+import {status, submit ,NotFound, problem ,Home , problemset, Tmp, Login, User, SubNums } from './index';
 
 const Pages = () => (
     <Switch>
@@ -19,7 +19,7 @@ const Pages = () => (
         <Route path='/Login' component={Login} />
         <Route exact path='/Register' component={Register}/>
         <Route path='/Register/Done' component={Done}/>
-        <Route path='/source:subNum' component={source} />
+        <Route path='/source:subNum' component={SubNums} />
         <Route component={NotFound} />
     </Switch>
 );

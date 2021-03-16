@@ -7,3 +7,4 @@ export { default as submit } from './submit';
 export { default as Tmp } from './Tmp';
 export { default as Login } from '../layout/Login';
 export { default as User } from "./User";
+export { default as SubNums } from "./SubNums";

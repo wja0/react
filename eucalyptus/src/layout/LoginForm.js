@@ -34,7 +34,7 @@ class LoginForm extends Component {
         const data 
           = await axios({
           method: "post",
-          //url: "https://whddnjs5167.github.io/react/eucalyptus/src/pages/data.json",
+          // url: "https://whddnjs5167.github.io/react/eucalyptus/src/pages/data.json",
           url: "http://210.117.181.118:4848/spring/login",
           data: {
             ID : this.state.id,

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./ViewProblem.css"
 
-function ViewCode({ Code}) {
+function ViewCode({ Pnum, Code}) {
     
     return (
     <div className="mycode">

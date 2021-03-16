@@ -70,10 +70,10 @@ ViewProblem.propTypes = {
     Pnum: PropTypes.string.isRequired,
     Pname: PropTypes.string.isRequired,
     Solved: PropTypes.string.isRequired,
-    Pcond: PropTypes.arrayOf(PropTypes.string).isRequired,
-    Pdetail: PropTypes.arrayOf(PropTypes.string).isRequired,
-    Pinout: PropTypes.arrayOf(PropTypes.string).isRequired
-
+    // Pcond: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // Pdetail: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // Pinout: PropTypes.arrayOf(PropTypes.string).isRequired
+    
 }
 
 export default ViewProblem;

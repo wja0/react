@@ -36,11 +36,11 @@ function Subnavigation({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
 
 Subnavigation.propTypes = {
   Pnum: PropTypes.string.isRequired,
-  Pname: PropTypes.string.isRequired,
-  Solved: PropTypes.string.isRequired,
-  Pcond: PropTypes.arrayOf(PropTypes.string).isRequired,
-  Pdetail: PropTypes.arrayOf(PropTypes.string).isRequired,
-  Pinout: PropTypes.arrayOf(PropTypes.string).isRequired
+  // Pname: PropTypes.string.isRequired,
+  // Solved: PropTypes.string.isRequired,
+  // Pcond: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // Pdetail: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // Pinout: PropTypes.arrayOf(PropTypes.string).isRequired
 
 }
 

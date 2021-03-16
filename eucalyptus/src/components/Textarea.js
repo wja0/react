@@ -6,6 +6,7 @@ import { problem, submit } from "../pages";
 import CodeMirror from '@uiw/react-codemirror';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/neo.css';
+import 'codemirror/theme/nord.css';
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/edit/matchbrackets';
 
@@ -21,8 +22,14 @@ class Textarea extends Component {
       lang_value: "c++",
     };
   }
-
+  handleChange= (e) => {
+    this.setState({
+        code : e.getValue()
+    });
+    setTimeout(this.handleCheck, 100);       
+}
   submit = async (e) => {
+    console.log(this.state)
     e.preventDefault();
     const {
       data: { Problems },
@@ -35,7 +42,6 @@ class Textarea extends Component {
       },
     }).then();
     this.setState({ result: Problems });
-    // console.log(this.state)
     this.props.history.push({
       pathname: `/status/${this.state.pnum}`,
       state: {
@@ -65,16 +71,20 @@ class Textarea extends Component {
         </div>
         <form className="codemirror-form">
           <CodeMirror
-            value={this.state.code}
-            onChange={{}}
+            value = {this.state.code}
             options={{
-              theme: 'neo',
+              theme: 'nord',
               keyMap: 'sublime',
+              lineNumbers : true,
               mode: 'C++',
-              tabSize: 8,
+              tabSize: 4,
+              height: "auto",
+              viewportMargin: Infinity,
+              lineWrapping: true,
+              indentWithTabs: false,  
             }}
+            onChange = {this.handleChange}
           />
-          {/* <button onClick={this.submit}>submit</button> */}
         </form>
       </div>
     );
