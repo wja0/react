@@ -8,7 +8,7 @@ class Register extends Component {
     }
     handleCreate = (data) => {
         console.log(data);
-
+        // this.props.onCreate(data)
         // const { register_info } = this.state;
 
         // this.setState({
@@ -20,7 +20,6 @@ class Register extends Component {
         // console.log(this.state)
 
     }
-
     render() {
         return (
           <div>

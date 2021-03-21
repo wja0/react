@@ -72,8 +72,8 @@ class RegisterForm extends Component{
                 })
 
                 window.alert('회원가입 완료!')
-                this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
                 this.setState({result: Return})
+                this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
                 this.props.history.push({
                     pathname: `/register/done`,
                     state: {

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from "axios";
 import "./problemset.css";
 import Problemget from "../components/Problemget";
+import Navigation from '../layout/Navigation'
+import Title from '../layout/Title'
+import HeaderContainer from '../layout/HeaderContainer';
 
 class problemset extends Component{
     state = {
@@ -23,6 +26,7 @@ class problemset extends Component{
     }
     
     render() {
+        console.log(this.props)
         const { Problems } = this.state;
         return (
             <div className="problemset">

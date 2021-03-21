@@ -1,5 +1,5 @@
 import React from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navigation.css"
 
 function Navigation() {
@@ -8,13 +8,7 @@ function Navigation() {
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/problemset'>Problems</Link></li>
-          {/* <ul className="nav_submenu">
-                <li className="nav_submenu-item"> <Link to =''>이런문제</Link></li>
-              </ul> */}
           <li><Link to='/status'>채점현황</Link></li>
-          {/* <ul className="nav_submenu">
-                <li className="nav_submenu-item"> <Link to =''>이런문제</Link></li>
-              </ul> */}
           <li><Link to='/submit'>Submit</Link></li>
           <li><Link to='/Tmp'>etc</Link></li>
         </ul>

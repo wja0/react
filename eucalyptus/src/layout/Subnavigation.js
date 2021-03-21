@@ -5,37 +5,34 @@ import "./Subnavigation.css"
 import ViewProblem from "../components/ViewProblem";
 import Textarea from "../components/Textarea";
 
-function Subnavigation({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
-
-  // function toproblem(e) {
-  //   e.preventDefault();
-  //   <ViewProblem
-  //     key={Pnum}
-  //     Pnum={Pnum}
-  //     Pname={Pname}
-  //     Solved={Solved}
-  //     Pcond={Pcond}
-  //     Pdetail={Pdetail}
-  //     Pinout={Pinout}
-  //     />
-  // }
-
-  return( 
+// function Subnavigation({Pnum, Pname, Solved, Pcond, Pdetail, Pinout}) {
+class Subnavigation extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      Pnum : props.Pnum,
+      id : props.id
+    }
+  }
+  render() {
+    const num = this.state.Pnum;
+    return(
     <div class="subnavigation">
       <hr className="subline" /> 
         <ul className="subnav">
-          <li className="sublist"><Link to={{pathname: `/problem/${Pnum}`}} className="subbtn">문제</Link></li>
-          <li className="sublist"><Link to={{pathname: `/submit/${Pnum}`}} className="subbtn">제출</Link></li>
-          {/* <li className="sublist"><Link to={{pathname: `/status/${Pnum}`}} className="subbtn">채점현황</Link></li>  */}
-          <li className="sublist"><Link to="#" className="subbtn">내 제출</Link></li>
+          <li className="sublist"><Link to={{pathname: `/problem/${num}`}} className="subbtn">문제</Link></li>
+          <li className="sublist"><Link to={{pathname: `/submit/${num}`}} className="subbtn">제출</Link></li> 
+          <li className="sublist"><Link to={{pathname: `/status/${num}`}} className="subbtn">채점현황</Link></li> 
+          {/* {/* <li className="sublist"><Link to="#" className="subbtn">내 제출</Link></li> */}
       </ul>
     </div>
-  )
+    )
+  }
     
 }
 
 Subnavigation.propTypes = {
-  Pnum: PropTypes.string.isRequired,
+  Pnum: PropTypes.number.isRequired,
   // Pname: PropTypes.string.isRequired,
   // Solved: PropTypes.string.isRequired,
   // Pcond: PropTypes.arrayOf(PropTypes.string).isRequired,

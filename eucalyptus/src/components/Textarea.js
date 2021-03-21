@@ -4,21 +4,22 @@ import axios from "axios";
 import "./Textarea.css";
 import { problem, submit } from "../pages";
 import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/keymap/sublime';
-import 'codemirror/theme/neo.css';
-import 'codemirror/addon/edit/closebrackets';
-import 'codemirror/addon/edit/matchbrackets';
+import '../../node_modules/codemirror/keymap/sublime';
+import '../../node_modules/codemirror/mode/clike/clike.js';
+import '../../node_modules/codemirror/theme/neo.css';
 
 class Textarea extends Component {
   constructor(props) {
     super(props);
+    // console.log(props)
     this.submit = this.submit.bind(this);
     this.state = {
+      id : "",
       result: [],
       pnum: props.props.match.params.id,
       code: "",
       info: "",
-      lang_value: "c++",
+      lang_value: "",
     };
   }
   handleChange= (e) => {
@@ -28,19 +29,20 @@ class Textarea extends Component {
     setTimeout(this.handleCheck, 100);       
 }
   submit = async (e) => {
-    console.log(this.state)
     e.preventDefault();
     const {
       data: { Problems },
     } = await axios({
       method: "post",
-      url: "http://210.117.181.118:4848/spring/submitcode",
+      url: "http://218.151.66.186:8080/spring/submitcode",
       data: {
         Pnum: this.state.pnum,
         code: this.state.code,
+        ID : 'lee'
       },
     }).then();
     this.setState({ result: Problems });
+    console.log(this.state.result)
     this.props.history.push({
       pathname: `/status/${this.state.pnum}`,
       state: {
@@ -72,15 +74,15 @@ class Textarea extends Component {
           <CodeMirror
             value = {this.state.code}
             options={{
-              theme: 'nord',
               keyMap: 'sublime',
+              theme : 'neo',
               lineNumbers : true,
-              mode: 'C++',
+              mode: 'text/x-c++src',
               tabSize: 4,
               height: "auto",
               viewportMargin: Infinity,
               lineWrapping: true,
-              indentWithTabs: false,  
+              indentWithTabs: true,  
             }}
             onChange = {this.handleChange}
           />

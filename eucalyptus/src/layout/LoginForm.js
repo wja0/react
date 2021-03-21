@@ -6,13 +6,14 @@ import sha256 from 'crypto-js/sha256';
 import axios from "axios";
 
 class LoginForm extends Component {
-  
     constructor(props) {
       super(props);
       this.handleSumit = this.handleSumit.bind(this);
       this.state = {
         id:'',
-        password: ''
+        password: '',
+        Name : '',
+        Result : ''
     }
     }
     handleChange= (e) => {
@@ -27,11 +28,10 @@ class LoginForm extends Component {
         var hash = String(sha256(this.state.password + salt)); // 비밀번호 hash 값으로 인코딩
         this.state.password = hash;         // 인코딩 값으로 password 값 업데이트
         this.setState(this.state);          //상태값 업데이트
-        this.props.onCreate(this.state);    //상태값 onCreate 통해 부모에게 전달
-        // console.log로 값 확인
-        
+
+        // console.log로 값 확인       
         // 서버 전송 코드. 정확하지 않음ㅠ
-        const data 
+        const { data : {Name} , data : {Result} }
           = await axios({
           method: "post",
           // url: "https://whddnjs5167.github.io/react/eucalyptus/src/pages/data.json",
@@ -41,27 +41,20 @@ class LoginForm extends Component {
             ID : this.state.id,
             Pwd : this.state.password,
           },
-        }).then(function(result) {
-          console.log("result:" + result)
-          if(result.data) {
-            this.props.history.push({
-              pathname: `/`,
-              state: {
-                id : this.id
-              },
-            })
+        })
+        this.setState({Name : Name, Result:Result})
+        if(this.state.Result) {
+          this.props.onCreate({id : this.state.id, name : this.state.Name});
+          this.props.history.push({
+            pathname: `/`,
+            state: {
+              id : this.state.id
+            },
+          })
+          }else {
+            window.alert('아이디 또는 패스워드가 일치하지 않습니다.')
+            this.setState({Name : Name, id : '', password : ''})
           }
-          else {
-            alert('아이디 또는 패스워드가 일치하지 않습니다.')
-          }
-        });
-        /*{
-          //console.log(result.data)
-          // this.state.result = result.data
-          
-        });*/
-        // console.log(data)
-
     }
     render() {
       return (

@@ -27,7 +27,6 @@ class problem extends React.Component {
     }
     render() {
         const { info } = this.state;
-        console.log(this.props);
         
         return (
             <div>
