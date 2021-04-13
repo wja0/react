@@ -26,6 +26,15 @@
     "LangType" : "C++",
     "CodeSize" : "132byte",
     "Permission" : "True"       
+    },
+    {
+    "SubNum" : "4",
+    "Pnum" : "1003",
+    "ID" : "asdf12", 
+    "Result" : "TIME_LIMIT_EXCEED",
+    "LangType" : "C++",
+    "CodeSize" : "132byte",
+    "Permission" : "True"       
     }
     ]
 }
